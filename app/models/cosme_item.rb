@@ -1,0 +1,2 @@
+class CosmeItem < ApplicationRecord
+end
