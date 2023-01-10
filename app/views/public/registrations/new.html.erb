@@ -1,7 +1,27 @@
-<h2>Sign up</h2>
+<h2>新規登録</h2>
 
 <%= form_with model: @user, url: user_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
+  
+  <div class="field">
+    <%= f.label "姓" %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label "名" %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label "ニックネーム" %><br />
+    <%= f.text_field :nickname %>
+  </div>
+  
+  <div class="field">
+    <%= f.label "ID" %><br />
+    <%= f.text_field :login_id %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />

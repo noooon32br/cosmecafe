@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'bookmarks/index'
+  end
   # 管理者用
   # URL /admin/sign_in ...
   devise_for :admin, skip:[:registrations, :passwords], controllers: {
@@ -12,7 +15,10 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
   namespace :admin do
+    resources :users, only: [:index, :show, :edit, :update]
+    resources :cosme_categorys, only: [:index, :edit, :create, :update]
     get 'home/top'
   end
   
@@ -22,6 +28,10 @@ Rails.application.routes.draw do
   
   scope module: :public do
     root to: 'homes#top'
+    resources :users, only: [:show, :edit, :update, :destroy]
+    resources :cosme_items, only: [:new, :index, :show, :edit, :destroy] do
+      resources :cosme_comments, only: [:create, :destroy]
+    end
   end
   
 end
