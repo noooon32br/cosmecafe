@@ -1,0 +1,10 @@
+<h1>コスメ詳細</h1>
+
+<h4>コスメ名</h4>
+<p><%= @cosmeitem.cosme_name %></p>
+
+<h4>コスメ内容</42>
+<p><%= @cosmeitem.description %></p>
+
+<%= link_to '編集', edit_cosme_item_path(@cosmeitem.id) %>
+<%= link_to '削除', cosme_item_path(@cosmeitem.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>

@@ -18,7 +18,11 @@
            
           <% else %>
             <li class="navbar-item">
-              <%= link_to 'ログイン',  new_user_session_path(), class: 'btn btn-outline-dark' %>
+              <%= link_to 'ログイン', new_user_session_path(), class: 'btn btn-outline-dark' %>
+            </li>
+            
+            <li class="navbar-item">
+              <%= link_to '新規登録', new_user_registration_path(), class: 'btn btn-outline-dark' %>
             </li>
           
           <% end %>

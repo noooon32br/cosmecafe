@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     resources :users, only: [:show, :edit, :update, :destroy]
-    resources :cosme_items, only: [:new, :index, :show, :edit, :destroy] do
+    resources :cosme_items, only: [:new, :index, :show, :edit, :create, :destroy, :update] do
       resources :cosme_comments, only: [:create, :destroy]
     end
   end
