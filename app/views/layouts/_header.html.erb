@@ -7,7 +7,18 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
-          <% if user_signed_in? %>
+          <% if user_signed_in? && current_user.login_id == 'guestuser' %>
+            <li class="navbar-item">
+              <%= link_to '新規登録', new_user_registration_path(), class: 'btn btn-outline-dark' %>
+            </li>
+            <li class="navbar-item">
+              <%= link_to 'ログアウト', destroy_user_session_path(), method: :delete, class: 'btn btn-outline-dark' %>
+            </li>
+          <% elsif admin_signed_in? %>
+            <li class="navbar-item">
+              <%= link_to '投稿一覧', cosme_items_path(), class: 'btn btn-outline-dark' %>
+            </li>
+          <% elsif user_signed_in? %>
             <li class="navbar-item">
               <%= link_to 'マイページ', user_path(current_user), class: 'btn btn-outline-dark' %>
             </li>
@@ -17,11 +28,6 @@
             <li class="navbar-item">
               <%= link_to 'ログアウト', destroy_user_session_path(), method: :delete, class: 'btn btn-outline-dark' %>
             </li>
-          <% elsif admin_signed_in? %>
-            <li class="navbar-item">
-              <%= link_to '投稿一覧', cosme_items_path(), class: 'btn btn-outline-dark' %>
-            </li>
-           
           
           <% else %>
             <li class="navbar-item">

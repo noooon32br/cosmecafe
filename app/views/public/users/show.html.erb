@@ -1,6 +1,6 @@
 <h1>マイページ</h1>
 
-<!--<div><%= image_tag @user.get_profile_image, size:'100x100' %></div>-->
+<div><%= image_tag @user.get_profile_image(100,100) %></div>
 
 <div><%= @user.nickname %></div>
 
@@ -8,10 +8,3 @@
 
 <%= link_to '新規投稿',  new_cosme_item_path, class: "btn btn-secondary" %>
 
-<% @cosme_items.each do |cosme_item| %>
-
-  <%= link_to cosme_item_path(cosme_item.id) do %>
-    <%= image_tag cosme_item.get_image %>
-  <% end %>
-
-<% end %>

@@ -5,7 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Admin.create!(
-   email: 'admin@web.jp',
-   password: 'admin0123'
-)
+# admin = Admin.new(
+#   email: 'admin@web.jp',
+#   password: 'admin0123'
+#  )
+# admin.save!
+admin = Admin.find_or_initialize_by(:email => 'admin@web.jp')
+admin.password = 'admin0101'
+admin.save!
