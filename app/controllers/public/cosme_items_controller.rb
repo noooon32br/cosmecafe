@@ -12,8 +12,9 @@ class Public::CosmeItemsController < ApplicationController
   end
   
   def create
-    cosmeitem = CosmeItem.new(cosmeitem_params)
-    cosmeitem.save
+    @cosmeitem = CosmeItem.new(cosmeitem_params)
+    @cosmeitem.user_id = current_user.id
+    @cosmeitem.save
     redirect_to cosme_items_path
   end
   
@@ -36,6 +37,6 @@ class Public::CosmeItemsController < ApplicationController
   private
   
   def cosmeitem_params
-    params.require(:cosme_item).permit(:cosme_name, :description)
+    params.require(:cosme_item).permit(:cosme_name, :description, :image)
   end
 end

@@ -12,10 +12,17 @@
               <%= link_to 'マイページ', user_path(current_user), class: 'btn btn-outline-dark' %>
             </li>
             <li class="navbar-item">
+              <%= link_to '投稿一覧', cosme_items_path(), class: 'btn btn-outline-dark' %>
+            </li>
+            <li class="navbar-item">
               <%= link_to 'ログアウト', destroy_user_session_path(), method: :delete, class: 'btn btn-outline-dark' %>
             </li>
           <% elsif admin_signed_in? %>
+            <li class="navbar-item">
+              <%= link_to '投稿一覧', cosme_items_path(), class: 'btn btn-outline-dark' %>
+            </li>
            
+          
           <% else %>
             <li class="navbar-item">
               <%= link_to 'ログイン', new_user_session_path(), class: 'btn btn-outline-dark' %>

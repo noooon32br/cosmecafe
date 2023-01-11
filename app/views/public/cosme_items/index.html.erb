@@ -9,5 +9,11 @@
   
   <%= link_to '詳細', cosme_item_path(cosmeitem.id) %>
   
+  <br />
+  <% if cosmeitem.image.attached? %>
+    <%= image_tag cosmeitem.image, size: "200x200" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "200x200" %>
+  <% end %>
 
 <% end %>
