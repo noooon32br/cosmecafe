@@ -1,11 +1,13 @@
 <h1>投稿一覧</h1>
 
-<%= link_to '新規投稿', new_cosme_item_path %>
+<% if current_user.login_id != "guestuser" %>
+  <div><%= link_to '新規投稿', new_cosme_item_path %></div>
+<% end %>
 
 <% @cosmeitems.each do |cosmeitem| %>
 
   <p>コスメ名</p>
-  <span><%= cosmeitem.cosme_name %></span>
+  <p><%= cosmeitem.cosme_name %></p>
   
   <%= link_to '詳細', cosme_item_path(cosmeitem.id) %>
   

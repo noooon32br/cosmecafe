@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'homes/top'
-  end
-  namespace :public do
-    get 'bookmarks/index'
-  end
+
   # 管理者用
   # URL /admin/sign_in ...
   devise_for :admin, skip:[:registrations, :passwords], controllers: {
@@ -22,7 +17,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
     resources :cosme_categorys, only: [:index, :edit, :create, :update]
-    get 'home/top'
+    get 'homes/top'
   end
   
   devise_scope :user do
@@ -34,7 +29,9 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :edit, :update, :destroy]
     resources :cosme_items, only: [:new, :index, :show, :edit, :create, :destroy, :update] do
       resources :cosme_comments, only: [:create, :destroy]
+      resources :bookmarks, only: [:index]
     end
+    get "search" => "searchs#search"
   end
   
 end

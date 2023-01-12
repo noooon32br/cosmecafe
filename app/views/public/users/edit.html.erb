@@ -1,0 +1,23 @@
+<h3>プロフィール編集</h3>
+
+<%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
+
+  <h4>名前</h4>
+  <%= f.text_field :last_name %>
+  
+  <%= f.text_field :first_name %>
+  
+  <h4>ニックネーム</h4>
+  <%= f.text_field :nickname %>
+  
+  <h4>ID</h4>
+  <%= f.text_field :login_id %>
+  
+  <h4>プロフィール画像</h4>
+  <%= f.file_field :prfile_image, class: "form-control-file user_image", accept: 'image/*' %>
+  
+  <%= f.submit '保存' %>
+  
+
+
+<% end %>

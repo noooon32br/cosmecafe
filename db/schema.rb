@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2023_01_11_043901) do
 
   create_table "cosme_items", force: :cascade do |t|
     t.integer "cosme_category_id"
+    t.integer "user_id"
     t.string "hashtag"
     t.string "cosme_name"
     t.text "description"
