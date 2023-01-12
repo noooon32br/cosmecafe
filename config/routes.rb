@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :edit, :update, :destroy]
     resources :cosme_items, only: [:new, :index, :show, :edit, :create, :destroy, :update] do
       resources :cosme_comments, only: [:create, :destroy]
-      resources :bookmarks, only: [:index]
+      resources :bookmarks, only: [:index, :create, :destroy]
     end
     get "search" => "searchs#search"
   end

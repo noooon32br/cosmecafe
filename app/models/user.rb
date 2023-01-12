@@ -6,6 +6,8 @@ class User < ApplicationRecord
   
   has_one_attached :profile_image
   has_many :cosme_items, dependent: :destroy
+  has_many :cosme_comments, dependent: :destroy
+  has_many :bookmark, dependent: :destroy
          
   def self.guest
     find_or_create_by!(login_id: 'guestuser' ,email: 'guest@example.com') do |user|

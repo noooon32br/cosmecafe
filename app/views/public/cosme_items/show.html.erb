@@ -12,9 +12,26 @@
 <% else %>
   <%= image_tag 'no_image', size: "300x300" %>
 <% end %>
-
 <br />
 <% if @cosmeitem.user_id == current_user.id %>
 <%= link_to '編集', edit_cosme_item_path(@cosmeitem.id) %>
 <%= link_to '削除', cosme_item_path(@cosmeitem.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
 <% end %>
+
+<div>
+  <p>コメント数：<%= @cosmeitem.cosme_comments.count %></p>
+  <% @cosmeitem.cosme_comments.each do |cosme_comment| %>
+    <p><%= image_tag cosme_comment.user.get_profile_image(100,100) %></p>
+    <%= cosme_comment.user.nickname %>
+    <%= cosme_comment.created_at.strftime('%Y/%m/%d') %><%= cosme_comment.comment %>
+    <% if cosme_comment.user == current_user %>
+      <%= link_to "削除", cosme_item_cosme_comment_path(cosme_comment.cosme_item, cosme_comment), method: :delete %>
+    <% end %>
+  <% end %>
+</div>
+<div>
+  <%= form_with model: [@cosmeitem, @cosme_comment] do |f| %>
+    <%= f.text_area :comment, rows: '5' %>
+    <%= f.submit "送信する" %>
+  <% end %>
+</div>

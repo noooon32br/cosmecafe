@@ -5,6 +5,8 @@ class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @cosme_items = @user.cosme_items
+    bookmarks = Bookmark.where(user_id: current_user.id).order(created_at: :desc).pluck(:cosme_item_id)
+    @bookmarks = CosmeItem.find(bookmarks)
   end
   
   def edit
