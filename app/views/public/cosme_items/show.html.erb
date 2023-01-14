@@ -1,17 +1,19 @@
 <h1>コスメ詳細</h1>
 
+<% if @cosmeitem.image.attached? %>
+  <%= image_tag @cosmeitem.image, size: "300x300" %>
+<% else %>
+  <%= image_tag 'no_image', size: "300x300" %>
+<% end %>
+
 <h4>コスメ名</h4>
 <p><%= @cosmeitem.cosme_name %></p>
 
 <h4>コスメ内容</42>
 <p><%= @cosmeitem.description %></p>
 
-<h4>画像</h4>
-<% if @cosmeitem.image.attached? %>
-  <%= image_tag @cosmeitem.image, size: "300x300" %>
-<% else %>
-  <%= image_tag 'no_image', size: "300x300" %>
-<% end %>
+<%#= render 'public/bookmarks/bookmark', cosme_item: @cosme_item, bookmark: @bookmark %>
+
 <br />
 <% if @cosmeitem.user_id == current_user.id %>
 <%= link_to '編集', edit_cosme_item_path(@cosmeitem.id) %>

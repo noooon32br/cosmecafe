@@ -13,7 +13,7 @@
             </li>
           <% elsif admin_signed_in? %>
             <li class="navbar-item">
-              <%= link_to '投稿一覧', cosme_items_path(), class: 'btn btn-outline-dark' %>
+              <%= link_to '投稿一覧', admin_homes_top_path(), class: 'btn btn-outline-dark' %>
             </li>
             <li class="navbar-item">
               <%= link_to 'ログアウト', destroy_admin_session_path(), method: :delete, class: 'btn btn-outline-dark' %>
