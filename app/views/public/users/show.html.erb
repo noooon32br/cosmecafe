@@ -10,3 +10,18 @@
 
 <%= link_to '新規投稿',  new_cosme_item_path, class: "btn btn-secondary" %>
 
+<h4>投稿一覧</h4>
+
+<% @cosme_items.each do |cosme_item| %>
+
+  <% if cosme_item.image.attached? %>
+    <%= image_tag cosme_item.image, size: "200x200" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "200x200" %>
+  <% end %>
+
+<p><%= cosme_item.cosme_name %></p>
+
+<% end %>
+
+<%= link_to 'お気に入り一覧',  user_bookmarks_path(@user), class: "btn btn-secondary" %>

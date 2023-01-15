@@ -26,10 +26,12 @@ Rails.application.routes.draw do
   
   scope module: :public do
     root to: 'homes#top'
-    resources :users, only: [:show, :edit, :update, :destroy]
+    resources :users, only: [:show, :edit, :update, :destroy] do
+      resources :bookmarks, only: [:index]
+    end
     resources :cosme_items, only: [:new, :index, :show, :edit, :create, :destroy, :update] do
       resources :cosme_comments, only: [:create, :destroy]
-      resources :bookmarks, only: [:index, :create, :destroy]
+      resource :bookmarks, only: [:create, :destroy]
     end
     get "search" => "searchs#search"
   end

@@ -1,6 +1,6 @@
 class CosmeItem < ApplicationRecord
-  extend ActiveHash::Associations::ActiveRecordExtensions
-   belongs_to_active_hash :cosme_category
+  # extend ActiveHash::Associations::ActiveRecordExtensions
+  #  belongs_to_active_hash :cosme_category
    
    has_one_attached :image
    belongs_to :user, optional: true

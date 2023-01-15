@@ -14,6 +14,7 @@ class Public::CosmeItemsController < ApplicationController
   def show
     @cosmeitem = CosmeItem.find(params[:id])
     @cosme_comment = CosmeComment.new
+    
   end
   
   def create
