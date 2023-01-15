@@ -1,8 +1,4 @@
-<h1>管理者ページ</h1>
-
-<h4>新規投稿一覧</h4>
-
-<h3>会員一覧</h3>
+<h4>会員一覧</h4>
 
 <table class="table">
   <tr>
@@ -14,11 +10,7 @@
   <% @users.each do |user| %>
   <tr>
     <th><%= user.id %></th>
-    <th>
-      <%= link_to admin_user_path(user) do %>
-        <%= user.last_name %><%= user.first_name %>
-      <% end %>
-    </th>
+    <th><%= user.last_name %><%= user.first_name %></th>
     <th><%= user.email %></th>
     <th></th>
   </tr>

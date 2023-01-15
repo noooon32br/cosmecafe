@@ -1,0 +1,28 @@
+<h4>会員詳細</h4>
+
+<div><%= @user.last_name %><%= @user.first_name %></div>
+
+<table class="table table-borderless">
+  <tr>
+    <th>会員ID</th>
+    <td><%= @user.id %></td>
+  </tr>
+  <tr>
+    <th>名前</th>
+    <td><%= @user.last_name %><%= @user.first_name %></td>
+  </tr>
+  <tr>
+    <th>ニックネーム</th>
+    <td><%= @user.nickname %></td>
+  </tr>
+  <tr>
+    <th>メールアドレス</th>
+    <td><%= @user.email %></td>
+  </tr>
+  <tr>
+    <th>ステータス</th>
+    <td>
+    </td>
+  </tr>
+  
+</table>

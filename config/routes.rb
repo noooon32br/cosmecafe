@@ -26,8 +26,11 @@ Rails.application.routes.draw do
   
   scope module: :public do
     root to: 'homes#top'
-    resources :users, only: [:show, :edit, :update, :destroy] do
+    resources :users, only: [:show, :edit, :index, :update, :destroy] do
       resources :bookmarks, only: [:index]
+      resource :relationships, only: [:create, :destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
     end
     resources :cosme_items, only: [:new, :index, :show, :edit, :create, :destroy, :update] do
       resources :cosme_comments, only: [:create, :destroy]
