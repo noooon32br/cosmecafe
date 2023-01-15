@@ -1,23 +1,25 @@
 <h1>投稿一覧</h1>
-
+<div class="container">
+  
 <% if current_user.login_id != "guestuser" %>
   <div><%= link_to '新規投稿', new_cosme_item_path %></div>
 <% end %>
-
+<div class="row">
+  
 <% @cosmeitems.each do |cosmeitem| %>
-
-  <p>コスメ名</p>
-  <p><%= cosmeitem.cosme_name %></p>
   
-  <%= link_to '詳細', cosme_item_path(cosmeitem.id) %>
-  
-  <br />
-  <% if cosmeitem.image.attached? %>
-    <%= image_tag cosmeitem.image, size: "200x200" %>
-  <% else %>
-    <%= image_tag 'no_image', size: "200x200" %>
-  <% end %>
-  
-  <div><%= link_to cosmeitem.usernickname, 
-  
+  <div class="col-md-3">
+          <% if cosmeitem.image.attached? %>
+            <%= image_tag cosmeitem.image, size: "200x200" %>
+          <% else %>
+            <%= image_tag 'no_image', size: "200x200" %>
+          <% end %>
+      <%#= link_to user_path(@user.id) do %><br />
+        <%= cosmeitem.user.nickname %>
+        <%# end %><br />
+        <%= cosmeitem.cosme_name %><%= link_to '詳細', cosme_item_path(cosmeitem.id) %>
+    </div>
+ 
+</div>
 <% end %>
+</div>

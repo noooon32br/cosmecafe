@@ -36,7 +36,7 @@ Rails.application.routes.draw do
       resources :cosme_comments, only: [:create, :destroy]
       resource :bookmarks, only: [:create, :destroy]
     end
-    get "search" => "searchs#search"
+    get "search" => "searches#search"
   end
   
 end

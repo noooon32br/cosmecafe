@@ -8,13 +8,13 @@ class Public::CosmeItemsController < ApplicationController
   
   def index
     @cosmeitems = CosmeItem.all
-   
+    # @cosmeitem = CosmeItem.find(params[:id])
+    # @user = @cosmeitem.user
   end
   
   def show
     @cosmeitem = CosmeItem.find(params[:id])
     @cosme_comment = CosmeComment.new
-    
   end
   
   def create
@@ -47,7 +47,7 @@ class Public::CosmeItemsController < ApplicationController
   private
   
   def cosmeitem_params
-    params.require(:cosme_item).permit(:cosme_name, :description, :image)
+    params.require(:cosme_item).permit(:cosme_name, :description, :image, :user_id)
   end
   
   def ensure_correct_user

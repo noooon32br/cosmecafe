@@ -1,27 +1,24 @@
 <h1>マイページ</h1>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-3'>
+    <%= render 'public/users/info', user: @user %>
 
-<div><%= image_tag @user.get_profile_image(100,100) %></div>
+    <%= link_to '新規投稿',  new_cosme_item_path, class: "btn btn-secondary" %>
+    </div>
+    <div class='col-md-8 offset-md-1'>
+    <h4>投稿一覧</h4>
 
-<div><%= @user.nickname %></div>
+    <% @cosme_items.each do |cosme_item| %>
 
+    <% if cosme_item.image.attached? %>
+      <%= image_tag cosme_item.image, size: "200x200" %>
+    <% else %>
+      <%= image_tag 'no_image', size: "200x200" %>
+    <% end %>
 
-
-<%= link_to 'プロフィール編集', edit_user_path(@user.id), class: "btn btn-secondary" %>
-
-<%= link_to '新規投稿',  new_cosme_item_path, class: "btn btn-secondary" %>
-
-<h4>投稿一覧</h4>
-
-<% @cosme_items.each do |cosme_item| %>
-
-  <% if cosme_item.image.attached? %>
-    <%= image_tag cosme_item.image, size: "200x200" %>
-  <% else %>
-    <%= image_tag 'no_image', size: "200x200" %>
-  <% end %>
-
-<p><%= cosme_item.cosme_name %></p>
-
-<% end %>
-
-<%= link_to 'お気に入り一覧',  user_bookmarks_path(@user), class: "btn btn-secondary" %>
+    <p><%= cosme_item.cosme_name %></p>
+    <% end %>
+    </div>
+  </div>
+</div>
