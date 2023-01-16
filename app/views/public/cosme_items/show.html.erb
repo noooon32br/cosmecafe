@@ -1,39 +1,50 @@
-<h1>コスメ詳細</h1>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h3>コスメ詳細</h3>
+      <div class="row">
+      <div class="col-3">
+        <% if @cosmeitem.image.attached? %>
+          <%= image_tag @cosmeitem.image, size: "300x300" %>
+        <% else %>
+          <%= image_tag 'no_image', size: "300x300" %>
+        <% end %>
+      </div>
+      <div class="col-5">
+       <%= render 'public/bookmarks/bookmark', cosme_item: @cosmeitem %>
+         <i class="far fa-comment"></i>
+         <%= @cosmeitem.cosme_comments.count %>
+    
+      <p>コスメ名</p>
+      <%= @cosmeitem.cosme_name %>
+      </div>
+      </div>
+      <div class="form-group">
+      <h4>コスメ内容</h4>
+      <%= @cosmeitem.description %>
+      </div>
+      
+      <% if @cosmeitem.user_id == current_user.id %>
+        <%= link_to '編集', edit_cosme_item_path(@cosmeitem.id), class: 'btn btn-secondary' %>
+        <%= link_to '削除', cosme_item_path(@cosmeitem.id), method: :delete, class: 'btn btn-secondary', "data-confirm" => "本当に削除しますか？" %>
+      <% end %>
 
-<% if @cosmeitem.image.attached? %>
-  <%= image_tag @cosmeitem.image, size: "300x300" %>
-<% else %>
-  <%= image_tag 'no_image', size: "300x300" %>
-<% end %>
-
-<h4>コスメ名</h4>
-<p><%= @cosmeitem.cosme_name %></p>
-
-<h4>コスメ内容</42>
-<p><%= @cosmeitem.description %></p>
-
-<%= render 'public/bookmarks/bookmark', cosme_item: @cosmeitem %>
-
-<br />
-<% if @cosmeitem.user_id == current_user.id %>
-<%= link_to '編集', edit_cosme_item_path(@cosmeitem.id) %>
-<%= link_to '削除', cosme_item_path(@cosmeitem.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-<% end %>
-
-<div>
-  <p>コメント数：<%= @cosmeitem.cosme_comments.count %></p>
-  <% @cosmeitem.cosme_comments.each do |cosme_comment| %>
-    <p><%= image_tag cosme_comment.user.get_profile_image(100,100) %></p>
-    <%= cosme_comment.user.nickname %>
-    <%= cosme_comment.created_at.strftime('%Y/%m/%d') %><%= cosme_comment.comment %>
-    <% if cosme_comment.user == current_user %>
-      <%= link_to "削除", cosme_item_cosme_comment_path(cosme_comment.cosme_item, cosme_comment), method: :delete %>
-    <% end %>
-  <% end %>
-</div>
-<div>
-  <%= form_with model: [@cosmeitem, @cosme_comment] do |f| %>
-    <%= f.text_area :comment, rows: '5' %>
-    <%= f.submit "送信する" %>
-  <% end %>
+      <div>
+        <% @cosmeitem.cosme_comments.each do |cosme_comment| %>
+          <p><%= image_tag cosme_comment.user.get_profile_image(100,100) %></p>
+          <%= cosme_comment.user.nickname %>
+          <%= cosme_comment.created_at.strftime('%Y/%m/%d') %><%= cosme_comment.comment %>
+          <% if cosme_comment.user == current_user %>
+            <%= link_to "削除", cosme_item_cosme_comment_path(cosme_comment.cosme_item, cosme_comment), method: :delete %>
+          <% end %>
+        <% end %>
+      </div>
+      <div>
+      <%= form_with model: [@cosmeitem, @cosme_comment] do |f| %>
+        <%= f.text_area :comment, rows: '5' %>
+        <%= f.submit "送信する", class: 'btn btn-secondary' %>
+      <% end %>
+      </div>
+    </div>
+  </div>
 </div>

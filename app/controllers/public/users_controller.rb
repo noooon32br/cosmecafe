@@ -1,6 +1,6 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_guest_user, only: [:edit]
+  before_action :ensure_guest_user, only: [:edit, :update]
   
   def index
   end
@@ -15,6 +15,11 @@ class Public::UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
+    if @user == current_user
+      render 'edit'
+    else
+      redirect_to user_path(@user.id)
+    end
   end
   
   def update
@@ -26,7 +31,7 @@ class Public::UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:last_name, :first_name, :nickname, :login_id, :profile_image)
+    params.require(:user).permit(:last_name, :first_name, :nickname, :login_id, :profile_image, :introduction)
   end
   
   def ensure_guest_user

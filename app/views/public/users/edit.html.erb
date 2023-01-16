@@ -1,23 +1,38 @@
-<h3>プロフィール編集</h3>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h3>プロフィール編集</h3>
+      <%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
 
-<%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
-
-  <h4>名前</h4>
-  <%= f.text_field :last_name %>
+      <div class="form-group">
+        <label>名前</label><br />
+        <%= f.text_field :last_name %>
+        <%= f.text_field :first_name %>
+      </div>
   
-  <%= f.text_field :first_name %>
+      <div class="form-group">
+        <label>ニックネーム</label><br/>
+        <%= f.text_field :nickname %>
+      </div>
   
-  <h4>ニックネーム</h4>
-  <%= f.text_field :nickname %>
+      <div class="form-group">
+        <label>ID</label><br/>
+        <%= f.text_field :login_id %>
+      </div>
+      <div class="form-group">
+        <label>自己紹介</label>
+        <%= f.text_area :introduction, class: "form-control introduction" %>
+      </div>
   
-  <h4>ID</h4>
-  <%= f.text_field :login_id %>
-  
-  <h4>プロフィール画像</h4>
-  <%= f.file_field :prfile_image, class: "form-control-file user_image", accept: 'image/*' %>
-  
-  <%= f.submit '保存' %>
-  
-
-
-<% end %>
+      <div class="form-group">
+        <label>プロフィール画像</label>
+        <%= f.file_field :prfile_image, class: "form-control-file user_image", accept: 'image/*' %>
+      </div>
+        
+      <div class="form-group">
+        <%= f.submit '保存', class: 'btn btn-secondary' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -7,7 +7,7 @@ class Public::CosmeItemsController < ApplicationController
   end
   
   def index
-    @cosmeitems = CosmeItem.all
+    @cosmeitems = CosmeItem.last(6)
     # @cosmeitem = CosmeItem.find(params[:id])
     # @user = @cosmeitem.user
   end
