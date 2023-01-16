@@ -9,9 +9,16 @@ class Public::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
+  def create
+    user = User.find_by(login_id: params[:user][:login_id])
+    if user.valid_password?(params[:user][:password]) && user.is_banned == false
+      sign_in user
+      redirect_to user_path(user)
+    else
+      redirect_to new_user_session_path, flash[:notice] = "現在利用停止中です。" 
+    end
   #   super
-  # end
+  end
 
   # DELETE /resource/sign_out
   # def destroy

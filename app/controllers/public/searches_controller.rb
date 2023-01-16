@@ -3,10 +3,10 @@ class Public::SearchesController < ApplicationController
   
   def search
     @range = params[:range]
-    if @range == "User"
-      @users = User.looks(params[:search], params[:word])
+    if @range == "会員"
+      @users = User.looks(params[:word])
     else
-      @cosmeitems = CosmeItem.looks(params[:search], params[:word])
+      @cosmeitems = CosmeItem.looks(params[:word])
     end
   end  
 end

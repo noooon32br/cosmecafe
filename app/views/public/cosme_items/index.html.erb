@@ -1,8 +1,13 @@
 <h1>投稿一覧</h1>
+ 
 <div class="container">
   <% if current_user.login_id != "guestuser" %>
     <div><%= link_to '新規投稿', new_cosme_item_path, class: 'btn btn-secondary' %></div>
   <% end %>
+  <%= form_with url: cosme_items_path, local: true, method: :get do |f| %>
+   <%= f.select :rank, options_for_select([['新着順'], ['閲覧数']]) %>
+   <%= f.submit "並び替え", class: "btn btn-outline-secondary my-2 my-sm-0" %>
+　<% end %>
   <div class="row">
     <% @cosmeitems.each do |cosmeitem| %>
     <div class="col-md-3">
@@ -15,9 +20,9 @@
           <br/>
         <%= cosmeitem.cosme_name %>
       <% end %>
-       <%#= link_to user_path(@user) do %><br />
+       <%= link_to user_path(cosmeitem.user.id) do %><br />
         <%= cosmeitem.user.nickname %>
-        <%# end %><br />
+        <% end %><br />
     </div>
     <% end %>
   </div>

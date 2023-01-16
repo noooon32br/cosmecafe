@@ -7,9 +7,18 @@ class Public::CosmeItemsController < ApplicationController
   end
   
   def index
-    @cosmeitems = CosmeItem.last(6)
-    # @cosmeitem = CosmeItem.find(params[:id])
-    # @user = @cosmeitem.user
+    @rank = params[:rank]
+    if @rank.present?
+      if @rank == '閲覧数'
+        @cosmeitems = CosmeItem.all.order(views: 'desc')
+      elsif @rank == '新着順'
+        @cosmeitems = CosmeItem.all.order(created_at: 'desc')
+      end
+    else
+      @cosmeitems = CosmeItem.all.order(created_at: 'desc')
+      #@cosmeitems = CosmeItem.last(6)
+    end
+    
   end
   
   def show

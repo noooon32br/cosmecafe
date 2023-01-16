@@ -11,6 +11,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :nickname
       t.string :login_id
       t.text :introduction
+      t.boolean :is_banned
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 2023_01_15_083104) do
     t.string "nickname"
     t.string "login_id"
     t.text "introduction"
+    t.boolean "is_banned"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
