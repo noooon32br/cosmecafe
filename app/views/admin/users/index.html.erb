@@ -9,10 +9,16 @@
   </tr>
   <% @users.each do |user| %>
   <tr>
-    <th><%= user.id %></th>
-    <th><%= user.last_name %><%= user.first_name %></th>
-    <th><%= user.email %></th>
-    <th></th>
+    <td><%= user.id %></td>
+    <td><%= user.last_name %><%= user.first_name %></td>
+    <td><%= user.email %></td>
+    <td>
+      <% if @user.is_banned == false %>
+        <p class="text-success">有効</p>
+      <% else %>
+        <p class="text-secondary">利用停止中</p>
+      <% end %>
+    </td>
   </tr>
   <% end %>
 </table>

@@ -8,6 +8,7 @@ class CosmeItem < ApplicationRecord
    has_many :bookmarks, dependent: :destroy
    has_many :hashtag_cosme_items, dependent: :destroy
    has_many :hashtags, through: :hashtag_cosme_items
+   belongs_to :cosme_category
    
    def bookmarked_by?(user)
     bookmarks.exists?(user_id: user.id)

@@ -60,9 +60,11 @@ ActiveRecord::Schema.define(version: 2023_01_17_043442) do
   end
 
   create_table "cosme_categories", force: :cascade do |t|
-    t.string "category_name"
+    t.string "name"
+    t.string "ancestry"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["ancestry"], name: "index_cosme_categories_on_ancestry"
   end
 
   create_table "cosme_comments", force: :cascade do |t|
