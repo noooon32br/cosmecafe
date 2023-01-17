@@ -37,6 +37,8 @@ Rails.application.routes.draw do
       resource :bookmarks, only: [:create, :destroy]
     end
     get "search" => "searches#search"
+    get '/cosme_item/hashtag/:name' => 'cosme_items#hashtag'
+    # get '/cosme_item/hashtag' => 'cosme_items#hashtag'
   end
   
 end

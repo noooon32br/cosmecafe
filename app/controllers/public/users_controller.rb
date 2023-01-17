@@ -7,7 +7,7 @@ class Public::UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @cosme_items = @user.cosme_items
+    @cosmeitems = @user.cosme_items
     # ログイン中のユーザーのお気に入りのcosme_item_idカラムを取得
     @bookmarks = Bookmark.where(user_id: current_user.id).pluck(:cosme_item_id)
     @bookmark_list = CosmeItem.find(@bookmarks)# cosme_itemsテーブルから、お気に入り登録済みのレコードを取得

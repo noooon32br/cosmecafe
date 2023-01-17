@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_15_083104) do
+ActiveRecord::Schema.define(version: 2023_01_17_043442) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2023_01_15_083104) do
   create_table "cosme_items", force: :cascade do |t|
     t.integer "cosme_category_id"
     t.integer "user_id"
-    t.string "hashtag"
+    t.text "hashbody"
     t.string "cosme_name"
     t.text "description"
     t.integer "views"
@@ -90,6 +90,22 @@ ActiveRecord::Schema.define(version: 2023_01_15_083104) do
     t.integer "cosme_item_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "hashtag_cosme_items", force: :cascade do |t|
+    t.integer "cosme_item_id"
+    t.integer "hashtag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cosme_item_id"], name: "index_hashtag_cosme_items_on_cosme_item_id"
+    t.index ["hashtag_id"], name: "index_hashtag_cosme_items_on_hashtag_id"
+  end
+
+  create_table "hashtags", force: :cascade do |t|
+    t.string "hashname"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hashname"], name: "index_hashtags_on_hashname", unique: true
   end
 
   create_table "public_relationships", force: :cascade do |t|
@@ -114,7 +130,7 @@ ActiveRecord::Schema.define(version: 2023_01_15_083104) do
     t.string "nickname"
     t.string "login_id"
     t.text "introduction"
-    t.boolean "is_banned"
+    t.boolean "is_banned", default: false, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -126,4 +142,6 @@ ActiveRecord::Schema.define(version: 2023_01_15_083104) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "hashtag_cosme_items", "cosme_items"
+  add_foreign_key "hashtag_cosme_items", "hashtags"
 end

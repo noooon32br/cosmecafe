@@ -1,0 +1,8 @@
+<%= @hashtag.hashname %>
+<% @hashtags.sort.reverse.each do |count| %>
+  <% count[1].each do |hashtag| %>
+    <p><%= link_to  "##{hashtag.hashname} (#{hashtag.cosme_items.count}) 件","/cosme_item/hashtag/#{hashtag.hashname}",data: {"turbolinks" => false} %></p>
+  <% end %>
+<% end %>
+
+ <%= render 'public/cosme_items/index', cosmeitems: @cosmeitems %>

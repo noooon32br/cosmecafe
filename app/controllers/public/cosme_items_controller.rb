@@ -16,7 +16,7 @@ class Public::CosmeItemsController < ApplicationController
       end
     else
       @cosmeitems = CosmeItem.all.order(created_at: 'desc')
-      #@cosmeitems = CosmeItem.last(6)
+      # @cosmeitems = CosmeItem.last(6)
     end
     
   end
@@ -53,10 +53,22 @@ class Public::CosmeItemsController < ApplicationController
     redirect_to cosme_items_path
   end
   
+  def hashtag
+    @user = current_user
+    if params[:name].nil?
+      @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.cosme_items.count}
+    else
+      @hashtag = Hashtag.find_by(hashname: params[:name])
+      @cosmeitems = @hashtag.cosme_items
+      @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.cosme_items.count}
+    end
+  end
+  
+  
   private
   
   def cosmeitem_params
-    params.require(:cosme_item).permit(:cosme_name, :description, :image, :user_id)
+    params.require(:cosme_item).permit(:cosme_name, :description, :image, :user_id, :hashbody, hashtag_ids: [])
   end
   
   def ensure_correct_user

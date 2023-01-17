@@ -3,7 +3,7 @@ class CreateCosmeItems < ActiveRecord::Migration[6.1]
     create_table :cosme_items do |t|
       t.integer :cosme_category_id
       t.integer :user_id
-      t.string :hashtag
+      t.text :hashbody
       t.string :cosme_name
       t.text :description
       t.integer :views

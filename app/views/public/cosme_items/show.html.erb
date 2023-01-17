@@ -23,7 +23,8 @@
       <h4>コスメ内容</h4>
       <%= @cosmeitem.description %>
       </div>
-      
+      <%= render_with_hashtags(@cosmeitem.hashbody) %>
+      <br/>
       <% if @cosmeitem.user_id == current_user.id %>
         <%= link_to '編集', edit_cosme_item_path(@cosmeitem.id), class: 'btn btn-secondary' %>
         <%= link_to '削除', cosme_item_path(@cosmeitem.id), method: :delete, class: 'btn btn-secondary', "data-confirm" => "本当に削除しますか？" %>

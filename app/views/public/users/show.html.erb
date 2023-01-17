@@ -9,16 +9,7 @@
     
     <div class='col-md-8 offset-md-1'>
     <h4>投稿一覧</h4>
-    <% @cosme_items.each do |cosme_item| %>
-    <div classs="col-md-3">
-      <% if cosme_item.image.attached? %>
-        <%= image_tag cosme_item.image, size: "200x200" %>
-      <% else %>
-        <%= image_tag 'no_image', size: "200x200" %>
-      <% end %>
-      <p><%= cosme_item.cosme_name %></p>
-    </div>
-    <% end %>
+    <%= render 'public/cosme_items/index', cosmeitems: @cosmeitems %>
     </div>
   </div>
 </div>

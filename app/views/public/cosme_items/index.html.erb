@@ -9,21 +9,8 @@
    <%= f.submit "並び替え", class: "btn btn-outline-secondary my-2 my-sm-0" %>
 　<% end %>
   <div class="row">
-    <% @cosmeitems.each do |cosmeitem| %>
-    <div class="col-md-3">
-      <%= link_to cosme_item_path(cosmeitem.id) do %> 
-          <% if cosmeitem.image.attached? %>
-            <%= image_tag cosmeitem.image, size: "200x200" %>
-          <% else %>
-            <%= image_tag 'no_image', size: "200x200" %>
-          <% end %>
-          <br/>
-        <%= cosmeitem.cosme_name %>
-      <% end %>
-       <%= link_to user_path(cosmeitem.user.id) do %><br />
-        <%= cosmeitem.user.nickname %>
-        <% end %><br />
-    </div>
-    <% end %>
+    
+  <%= render 'public/cosme_items/index', cosmeitems: @cosmeitems %>
+    
   </div>
 </div>
