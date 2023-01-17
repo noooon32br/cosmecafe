@@ -7,22 +7,27 @@ class Public::CosmeItemsController < ApplicationController
   end
   
   def index
-    @rank = params[:rank]
-    if @rank.present?
-      if @rank == '閲覧数'
-        @cosmeitems = CosmeItem.all.order(views: 'desc')
-      elsif @rank == '新着順'
-        @cosmeitems = CosmeItem.all.order(created_at: 'desc')
+    @cosme_categories = CosmeCategory.where(ancestry: nil)
+    @cosmeitems = CosmeItem.all.order(created_at: 'desc')
+    if params[:category_id].present?
+      category = CosmeCategory.find_by(id: params[:category_id])
+      if category.present?
+        @cosmeitems = category.cosme_items.order(created_at: 'desc')
       end
-    else
-      @cosmeitems = CosmeItem.all.order(created_at: 'desc')
-      # @cosmeitems = CosmeItem.last(6)
     end
     
+    if params[:rank].present?
+      if params[:rank] == '閲覧数'
+        @cosmeitems = @cosmeitems.order(views: 'desc')
+      end
+    end
+    
+    #@cosmeitems = @cosmeitems.page(params[:page]).per(6)
   end
   
   def show
     @cosmeitem = CosmeItem.find(params[:id])
+    @cosmeitem.update!(views: @cosmeitem.views + 1)
     @cosme_comment = CosmeComment.new
   end
   

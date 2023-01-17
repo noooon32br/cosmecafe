@@ -22,10 +22,8 @@
   <tr>
     <th>ステータス</th>
     <td>
-      <%= f.radio_button :is_banned, :false %>
-      <%= f.label :is_banned_Available, "有効" %>
-      <%= f.radio_button :is_banned, :true %>
-      <%= f.label :is_banned_Invalid, "利用停止中" %>
+      <%= f.label :is_banned, "利用停止中" %>
+      <%= f.check_box :is_banned %>
     </td>
   </tr>
   

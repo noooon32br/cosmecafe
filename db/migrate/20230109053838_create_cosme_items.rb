@@ -6,7 +6,7 @@ class CreateCosmeItems < ActiveRecord::Migration[6.1]
       t.text :hashbody
       t.string :cosme_name
       t.text :description
-      t.integer :views
+      t.integer :views, null: false, default: 0
       t.string :keyword
       t.timestamps
     end
