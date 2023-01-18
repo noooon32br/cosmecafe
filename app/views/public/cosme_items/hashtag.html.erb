@@ -4,5 +4,8 @@
 <div>#<%= @hashtag.hashname %></div>
  <%= @hashtag.cosme_items.count %>件
 
-
- <%= render 'public/cosme_items/index', cosmeitems: @cosmeitems %>
+<div class="col-5">
+<div class="row">
+   <%= render 'public/cosme_items/index', cosmeitems: @cosmeitems %>
+ </div>
+ </div>

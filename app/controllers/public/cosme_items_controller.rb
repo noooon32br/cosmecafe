@@ -22,7 +22,7 @@ class Public::CosmeItemsController < ApplicationController
         @cosmeitems = @cosmeitems.order(views: 'desc')
       end
     end
-    # @cosmeitems = @cosmeitems.page(params[:page]).per(6)
+    @cosmeitems = @cosmeitems.page(params[:page]).per(6)
   end
   
   def show
@@ -67,6 +67,7 @@ class Public::CosmeItemsController < ApplicationController
       @cosmeitems = @hashtag.cosme_items
       @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.cosme_items.count}
     end
+     @cosmeitems = @cosmeitems.page(params[:page]).per(6)
   end
   
   
