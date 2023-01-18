@@ -1,27 +1,39 @@
-<h1>管理者ページ</h1>
-
-<h4>新規投稿一覧</h4>
- <%= render 'public/cosme_items/index', cosmeitems: @cosmeitems %>
-
-<h3>会員一覧</h3>
-
-<table class="table">
-  <tr>
-    <th>会員ID</th>
-    <th>名前</th>
-    <th>メールアドレス</th>
-    <th>ステータス</th>
-  </tr>
-  <% @users.each do |user| %>
-  <tr>
-    <th><%= user.id %></th>
-    <th>
-      <%= link_to admin_user_path(user) do %>
-        <%= user.last_name %><%= user.first_name %>
+<div class="container">
+  <h4>管理者ページ</h4>
+  <div class="row">
+    <h4>新規投稿一覧</h4>
+    <div class="col-md-3">
+      <%= render 'public/cosme_items/index', cosmeitems: @cosmeitems %>
+    </div>
+  </div>
+  <div class="row">
+    <h3>会員一覧</h3>
+      <table class="table">
+        <tr>
+          <th>会員ID</th>
+          <th>名前</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
+        </tr>
+        <% @users.each do |user| %>
+        <tr>
+          <th><%= user.id %></th>
+          <th>
+            <%= link_to admin_user_path(user) do %>
+              <%= user.last_name %><%= user.first_name %>
+            <% end %>
+          </th>
+          <th><%= user.email %></th>
+          <td>
+            <% if user.is_banned == false %>
+              <p class="text-success">有効</p>
+            <% else %>
+              <p class="text-secondary">利用停止中</p>
+            <% end %>
+          </td>
+        </tr>
       <% end %>
-    </th>
-    <th><%= user.email %></th>
-    <th></th>
-  </tr>
-  <% end %>
-</table>
+      </table>
+    </div>
+  </div>
+</div>
