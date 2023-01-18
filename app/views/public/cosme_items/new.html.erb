@@ -14,7 +14,14 @@
      <%= f.text_area :hashbody, size:"55x3" %>
 
     <h4>カテゴリ選択</h4>
-     <%= f.select :category_id, options_from_collection_for_select( CosmeCategory.all, :id, :name) %>
+     <%= f.select :cosme_category_id, options_from_collection_for_select(@cosmecategorys, :id, :name), {include_blank: "選択してください"} %>
+     
+        <% @cosmecategorys.each do |cosmecategory| %>
+        <div id="category_box_<%= cosmecategory.id %>" class="category_box" style="display:none;">
+          <%= f.select :cosme_category_id, options_from_collection_for_select(CosmeCategory.where(ancestry: cosmecategory.id), :id, :name) %>
+        </div>
+        <% end %>
+      
 
      <h4>画像</h4>
      <%= f.file_field :image, accept: "image/*" %>
@@ -25,3 +32,20 @@
     <% end %>
   </div>
 </div>
+
+<script>
+$(function() {
+   $('#cosme_item_cosme_category_id').change(function(){
+       //category_boxを探して、selectタグを探し無効化する
+         $('.category_box').find('input,select,button').prop('disabled', true);
+         //category_boxを探して、画面上から非表示にする
+          $('.category_box').hide();
+          //category_idの変数にcosme_item_cosme_category_idを選択されたvalueの値を確認
+       category_id = document.getElementById('cosme_item_cosme_category_id').value;
+       //category_idの入ったcategory_boxのidを探し、その部分だけselectタグを有効化する
+         $(`#category_box_${category_id}`).find('input,select,button').prop('disabled', false);
+         //category_idの入ったcategory_boxのidを探し、その部分だけ画面上に表示する
+         $(`#category_box_${category_id}`).show();
+    });
+});
+</script>

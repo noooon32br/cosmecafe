@@ -4,7 +4,7 @@ class Public::CosmeItemsController < ApplicationController
   
   def new
     @cosmeitem = CosmeItem.new
-    @cosme_categories = CosmeCategory.find_by(id: params[:category_id])
+    @cosmecategorys = CosmeCategory.where(ancestry: nil)
   end
   
   def index
@@ -73,7 +73,7 @@ class Public::CosmeItemsController < ApplicationController
   private
   
   def cosmeitem_params
-    params.require(:cosme_item).permit(:cosme_name, :description, :image, :user_id, :hashbody, hashtag_ids: [])
+    params.require(:cosme_item).permit(:cosme_name, :description, :image, :user_id, :hashbody, :cosme_category_id, hashtag_ids: [])
   end
   
   def ensure_correct_user

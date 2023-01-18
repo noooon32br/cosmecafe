@@ -24,6 +24,7 @@
       <%= @cosmeitem.description %>
       </div>
       <%= render_with_hashtags(@cosmeitem.hashbody) %>
+       <%= @cosmeitem.cosme_category.name %>
       <br/>
       <% if @cosmeitem.user_id == current_user.id %>
         <%= link_to '編集', edit_cosme_item_path(@cosmeitem.id), class: 'btn btn-secondary' %>

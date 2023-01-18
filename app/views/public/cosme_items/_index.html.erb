@@ -1,5 +1,5 @@
-<div class="card-list mb-3", style="width: 18rem;">
-  <% cosmeitems.each do |cosmeitem| %>
+ <% cosmeitems.each do |cosmeitem| %>
+<div class="card-list mb-3 col-6">
   <div class="card-img-top mx-auto mt-4 shadow-lg", width="100%">
     <%= link_to cosme_item_path(cosmeitem.id) do %> 
       <% if cosmeitem.image.attached? %>
@@ -13,7 +13,7 @@
           <%= cosmeitem.cosme_name %>
         </p>
         <p class="card-text">
-         <%= cosmeitem.description %>
+         <%= cosmeitem.description.truncate(10) %>
         </p>
         <span>
           <small class="text-muted"><%= render_with_hashtags(cosmeitem.hashbody) %></small>
@@ -26,5 +26,6 @@
           </small>
         </p>
       </div>
-  <% end %>
-</div>
+  </div>
+  </div>
+ <% end %>

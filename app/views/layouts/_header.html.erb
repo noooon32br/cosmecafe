@@ -28,13 +28,13 @@
             <li class="navbar-item">
               <%= link_to 'ログアウト', destroy_user_session_path(), method: :delete, class: 'btn btn-secondary' %>
             </li>
-            <div class="search_form">
+            <li class="navbar-item">
             <%= form_with url: search_path, local: true, method: :get do |f| %>
-              <%= f.text_field :word, class: "form-control mr-sm-2", type: "text", placeholder: "Search" %>
-              <%= f.select :range, options_for_select([['会員'], ['コスメ名']]) %>
+              <%= f.select :range, options_for_select([['会員'], ['キーワード']]) %>
+              <%= f.text_field :word, type: "text", placeholder: "Search" %>
               <button class="btn btn-success" type="button"><i class="fas fa-search"></i></button>
             <% end %>
-             </div>
+             </li>
           <% else %>
             <li class="navbar-item">
               <%= link_to 'ログイン', new_user_session_path(), class: 'btn btn-secondary' %>
