@@ -7,19 +7,21 @@
      <h4>コスメ名</h4>
      <%= f.text_field :cosme_name %>
 
+    <h4>コスメ内容</h4>
+    <%= f.text_area :description, size:"55x3" %>
+  
+     <h4>ハッシュタグ入力欄</h4>
+     <%= f.text_area :hashbody, size:"55x3" %>
 
-  <h4>コスメ内容</h4>
-  <%= f.text_area :description, size:"55x3" %>
+    <h4>カテゴリ選択</h4>
+     <%= f.select :category_id, options_from_collection_for_select( CosmeCategory.all, :id, :name) %>
 
-   <h4>ハッシュタグ入力欄</h4>
-   <%= f.text_area :hashbody, size:"55x3" %>
+     <h4>画像</h4>
+     <%= f.file_field :image, accept: "image/*" %>
 
-   <h4>画像</h4>
-   <%= f.file_field :image, accept: "image/*" %>
-
-   <%= f.submit '投稿', class: 'btn btn-secondary' %>
+     <%= f.submit '投稿', class: 'btn btn-secondary' %>
 
 
-<% end %>
-</div>
+    <% end %>
+  </div>
 </div>

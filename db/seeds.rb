@@ -37,19 +37,58 @@ basemake_child_names.each do |name|
   basemake.children.find_or_create_by!(name: name)
 end
 
-#haircare = CosmeCategory.create(name: "ヘアケア・スタイリング")
-#haircare_1 = haircare.children.create([{name: "シャンプー・トリートメント"},{name: "ヘアケア"},{name: "ヘアスタイリング"}])
+haircare = CosmeCategory.find_or_create_by!(name: "ヘアケア・スタイリング")
+haircare_child_names = [
+  "シャンプー・トリートメント",
+  "ヘアケア",
+  "ヘアスタイリング"
+]
+haircare_child_names.each do |name|
+  haircare.children.find_or_create_by!(name: name)
+end
 
-#skincare = CosmeCategory.create(name: "スキンケア・基礎化粧品")
-#skincare_1 = skincare.children.create([{name: "洗顔料"},{name: "クレンジング"},{name: "化粧水"}, {name: "乳液・美容液"}, {name: "パック・フェイスマスク"}, {name: "その他スキンケア"}])
+skincare = CosmeCategory.find_or_create_by!(name: "スキンケア・基礎化粧品")
+skincare_child_names = [
+  "洗顔料",
+  "クレンジング",
+  "化粧水",
+  "乳液・美容液",
+  "パック・フェイスマスク",
+  "その他スキンケア"
+]
+skincare_child_names.each do |name|
+  skincare.children.find_or_create_by!(name: name)
+end
 
-#sunscreen = CosmeCategory.create(name: "日焼け止め・UVケア")
-#sunscreen_1 = sunscreen.children.create([{name: "日焼け止め・UVケア(顔用)"}, {name: "日焼け止め・UVケア(ボディ用)"}])
+sunscreen = CosmeCategory.find_or_create_by!(name: "日焼け止め・UVケア")
+sunscreen_child_names = [
+  "日焼け止め・UVケア(顔用)",
+  "日焼け止め・UVケア(ボディ用)"
+]
+sunscreen_child_names.each do |name|
+  sunscreen.children.find_or_create_by!(name: name)
+end
 
-#bodycare = CosmeCategory.create(name: "ボディケア・オーラルケア")
-#bodycare_1 = bodycare.children.create([{name: "デイリーボディケア"}, {name: "その他ボディケア"}, {name: "オーラルケア"}])
+bodycare = CosmeCategory.find_or_create_by!(name: "ボディケア・オーラルケア")
+bodycare_child_names = [
+  "デイリーボディケア",
+  "その他ボディケア",
+  "オーラルケア"
+]
+bodycare_child_names.each do |name|
+  bodycare.children.find_or_create_by!(name: name)
+end
 
-#goods = CosmeCategory.create(name: "美容グッズ")
-#goods_1 = goods.children.create([{name: "スキンケアグッズ"}, {name: "メイクアップグッズ"}, {name: "ボディグッズ"}, {name: "ヘアグッズ"}, {name: "その他グッズ"}])
+goods = CosmeCategory.find_or_create_by!(name: "美容グッズ")
+goods_child_names = [
+  "スキンケアグッズ",
+  "メイクアップグッズ",
+  "ボディグッズ",
+  "ヘアグッズ",
+  "その他グッズ"
+]
+goods_child_names.each do |name|
+  goods.children.find_or_create_by!(name: name)
+end
 
 p "seedデータ作成しました"

@@ -8,7 +8,7 @@ class CosmeItem < ApplicationRecord
    has_many :bookmarks, dependent: :destroy
    has_many :hashtag_cosme_items, dependent: :destroy
    has_many :hashtags, through: :hashtag_cosme_items
-   belongs_to :cosme_category
+   belongs_to :cosme_category, optional: true
    
    def bookmarked_by?(user)
     bookmarks.exists?(user_id: user.id)
@@ -42,7 +42,7 @@ class CosmeItem < ApplicationRecord
     hashtags.uniq.map do |hashtag|
       #Hashtagが既に存在しているかを調べ、なければ作成
       tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))
-      post_image.hashtags << tag
+      cosme_item.hashtags << tag
     end
   end
 end

@@ -67,3 +67,5 @@ gem "net-pop"
 gem "net-imap"
 
 gem 'ancestry'
+
+gem 'kaminari','~> 1.2.1'

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update]
-    resources :cosme_categorys, only: [:index, :edit, :create, :update]
+    resources :cosme_categorys, only: [:index, :create, :update]
     get 'homes/top'
   end
   

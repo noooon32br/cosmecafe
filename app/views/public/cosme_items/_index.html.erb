@@ -1,23 +1,30 @@
-<div class="card-list-container py-5">
+<div class="card-list mb-3", style="width: 18rem;">
   <% cosmeitems.each do |cosmeitem| %>
-  <div class="card w-50 mx-auto mt-4 shadow-lg">
+  <div class="card-img-top mx-auto mt-4 shadow-lg", width="100%">
     <%= link_to cosme_item_path(cosmeitem.id) do %> 
       <% if cosmeitem.image.attached? %>
         <%= image_tag cosmeitem.image, size: "200x200", class:"card-img-top" %>
       <% else %>
         <%= image_tag 'no_image', size: "200x200" %>
       <% end %>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-10">
-          <p class="card-title">
-            <%= cosmeitem.cosme_name %>
-          </p>
     <% end %>
-     <p class="card-text">
-    <%= link_to user_path(cosmeitem.user.id) do %></p>
-  <%= cosmeitem.user.nickname %>
-<% end %><br />
-</div>
-<% end %>
+      <div class="card-body">
+        <p class="card-title">
+          <%= cosmeitem.cosme_name %>
+        </p>
+        <p class="card-text">
+         <%= cosmeitem.description %>
+        </p>
+        <span>
+          <small class="text-muted"><%= render_with_hashtags(cosmeitem.hashbody) %></small>
+        </span><br>
+        <p>
+          <small class="text-muted">
+          <%= link_to user_path(cosmeitem.user.id) do %>
+            <%= cosmeitem.user.nickname %> 
+          <% end %>
+          </small>
+        </p>
+      </div>
+  <% end %>
 </div>

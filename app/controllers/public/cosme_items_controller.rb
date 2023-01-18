@@ -4,6 +4,7 @@ class Public::CosmeItemsController < ApplicationController
   
   def new
     @cosmeitem = CosmeItem.new
+    @cosme_categories = CosmeCategory.find_by(id: params[:category_id])
   end
   
   def index
@@ -21,8 +22,7 @@ class Public::CosmeItemsController < ApplicationController
         @cosmeitems = @cosmeitems.order(views: 'desc')
       end
     end
-    
-    #@cosmeitems = @cosmeitems.page(params[:page]).per(6)
+    # @cosmeitems = @cosmeitems.page(params[:page]).per(6)
   end
   
   def show
