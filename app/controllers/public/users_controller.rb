@@ -11,6 +11,7 @@ class Public::UsersController < ApplicationController
     # ログイン中のユーザーのお気に入りのcosme_item_idカラムを取得
     @bookmarks = Bookmark.where(user_id: current_user.id).pluck(:cosme_item_id)
     @bookmark_list = CosmeItem.find(@bookmarks)# cosme_itemsテーブルから、お気に入り登録済みのレコードを取得
+    @cosmeitems = @cosmeitems.page(params[:page]).per(6)
   end
   
   def edit
