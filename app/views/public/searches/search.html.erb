@@ -1,9 +1,12 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 <table class="table table-hover table-inverse">
  <% if @range == "会員" %>
     <tbody>
       <% @users.each do |user| %>
         <tr>
-          <td><%= user.nickname %></td>
+          <td><%= link_to user.nickname, user_path(user) %></td>
         </tr>
       <% end %>
     </tbody>
@@ -11,10 +14,13 @@
     <tbody>
       <% @cosmeitems.each do |cosmeitem| %>
         <tr>
-          <td><%= cosmeitem.cosme_name %></td>
+          <td><%= link_to cosmeitem.cosme_name, cosme_item_path(cosmeitem.id) %></td>
           <td><%= cosmeitem.description %></td>
         </tr>
       <% end %>
     </tbody>
   <% end %>
 </table>
+</div>
+</div>
+</div>

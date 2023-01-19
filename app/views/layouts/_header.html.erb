@@ -31,8 +31,8 @@
             <li class="navbar-item">
             <%= form_with url: search_path, local: true, method: :get do |f| %>
               <%= f.select :range, options_for_select([['会員'], ['キーワード']]) %>
-              <%= f.text_field :word, type: "text", placeholder: "Search" %>
-              <button class="btn btn-success" type="button"><i class="fas fa-search"></i></button>
+              <%= f.text_field :word, type: "text", placeholder: "Search", class: "" %>
+              <button class="btn btn-secondary" type="submit"><i class="fas fa-search"></i></button>
             <% end %>
              </li>
           <% else %>

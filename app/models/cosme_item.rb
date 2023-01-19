@@ -17,7 +17,7 @@ class CosmeItem < ApplicationRecord
     # 検索方法分岐
   def self.looks(word)
     if word.present?
-      @cosmeitem = CosmeItem.where("cosme_name LIKE?","%#{word}%")
+      @cosmeitem = CosmeItem.joins(:hashtags).where("cosme_name LIKE? or description LIKE?  or hashtags.hashname LIKE?","%#{word}%","%#{word}%","%#{word}%").distinct
     else
       @cosmeitem = CosmeItem.all
     end
