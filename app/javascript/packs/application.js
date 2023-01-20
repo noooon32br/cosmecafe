@@ -13,7 +13,9 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
-
+import "../stylesheets/header"
+import "../stylesheets/index"
+import "../stylesheets/footer"
 
 Rails.start()
 Turbolinks.start()

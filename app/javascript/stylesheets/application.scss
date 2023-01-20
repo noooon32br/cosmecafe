@@ -1,6 +1,17 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-// .navbar-brand {
-//   font-family: 'Kaushan';
-// }
+main {
+  background-image: url(/assets/cosme_back.jpeg);
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  height:100%;
+  width:100%;
+}
+
+.BackGroundColor {
+  background: rgba(255,255,255,0.6);
+  padding:30px 0px;
+  height:100%;
+}

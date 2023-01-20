@@ -1,0 +1,11 @@
+.navbar-brand {
+  font-size: 30px;
+}
+
+header .navbar {
+  background-color: #fff0f5;
+}
+
+.container-fluid {
+  width: 100%;
+}

@@ -1,11 +1,14 @@
+<div class="container">
+  <div class="row">
+    <p class="col-3">タグ一覧</p>
 
-<p>検索結果</p>
+    <div>#<%= @hashtag.hashname %></div>
+     <%= @hashtag.cosme_items.count %>件
 
-<div>#<%= @hashtag.hashname %></div>
- <%= @hashtag.cosme_items.count %>件
-
-<div class="col-5">
-<div class="row">
-   <%= render 'public/cosme_items/index', cosmeitems: @cosmeitems %>
- </div>
- </div>
+    <div class="col-md-9 col-sm-12">
+      <div class="row">
+        <%= render 'public/cosme_items/index', cosmeitems: @cosmeitems %>
+      </div>
+    </div>
+  </div>
+</div>

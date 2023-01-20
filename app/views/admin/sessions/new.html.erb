@@ -1,9 +1,12 @@
-<h2>ログイン</h2>
-
-<%= form_with model: @admin, url: admin_session_path do |f| %>
-  <div class="field">
-    <%= f.label 'メールアドレス' %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto text-center shadow-lg rounded px-0 my-5">
+      <h5 class="text-dark bg-light py-4 mb-0">ログイン</h5>
+      <div class="form-body p-4">
+      <%= form_with model: @admin, url: admin_session_path do |f| %>
+        <div class="field">
+         <%= f.label 'メールアドレス' %><br />
+         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
@@ -15,6 +18,7 @@
   <div class="actions">
     <%= f.submit "ログイン" %>
   </div>
-<% end %>
-
-<%= render "admin/shared/links" %>
+      <% end %>
+    </div>
+  </div>
+</div>
