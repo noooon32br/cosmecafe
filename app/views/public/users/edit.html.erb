@@ -1,7 +1,7 @@
 <div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h3>プロフィール編集</h3>
+      <h4>プロフィール編集</h4>
       <%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
 
       <div class="form-group">
@@ -26,7 +26,7 @@
   
       <div class="form-group">
         <label>プロフィール画像</label>
-        <%= f.file_field :prfile_image, class: "form-control-file user_image", accept: 'image/*' %>
+        <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>
       </div>
         
       <div class="form-group">

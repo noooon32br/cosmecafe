@@ -9,12 +9,12 @@
     <div class="col-8">
       <%= form_with url: cosme_items_path, local: true, method: :get do |f| %>
         <%= f.select :rank, options_for_select([['新着順'], ['閲覧数']]) %>
-        <%= f.submit "並び替え", class: "btn btn-outline-secondary my-2 my-sm-0" %>
+        <%= f.submit "並び替え", class: "btn btn-outline-secondary my-2 my-sm-0 btn-sm" %>
       <% end %>
     </div>
   </div>
   <div class="row">
-    <div class="col-3">
+    <div class="col-lg-3 col-md-4">
       <p>カテゴリー</p>
       <% @cosme_categories.each do |category| %>
         <div class="dropright">
@@ -31,7 +31,6 @@
       <% end %>
     </div>
     <div class="col-9">
-      
       <div class="row">
       
           <%= render 'public/cosme_items/index', cosmeitems: @cosmeitems %>

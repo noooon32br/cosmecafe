@@ -29,7 +29,7 @@
             <%= form_with url: search_path, local: true, method: :get do |f| %>
               <%= f.select :range, options_for_select([['会員'], ['キーワード']]) %>
               <%= f.text_field :word, type: "text", placeholder: "Search", class: "" %>
-              <button class="btn btn-secondary" type="submit"><i class="fas fa-search"></i></button>
+              <button class="btn btn-secondary btn-sm" type="submit"><i class="fas fa-search"></i></button>
             <% end %>
              </li>
           <% else %>
