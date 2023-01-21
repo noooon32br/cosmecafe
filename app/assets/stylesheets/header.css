@@ -1,0 +1,12 @@
+.navbar-brand {
+  font-size: 30px !important;
+}
+
+.navbar-light {
+  background: #fff0f5 !important;
+  z-index: 5;
+}
+
+.container-fluid {
+  width: 100%;
+}
