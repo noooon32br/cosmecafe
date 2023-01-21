@@ -11,7 +11,9 @@
           <% end %>
         </div>
         <div class="col-4">
-          <%= render 'public/bookmarks/bookmark', cosme_item: @cosmeitem %>
+          <div id="bookmark_button">
+            <%= render 'public/bookmarks/bookmark', cosme_item: @cosmeitem %>
+          </div>
           <br/>
           <i class="far fa-comment"></i>
           <span><%= @cosmeitem.cosme_comments.count %></span>

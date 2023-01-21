@@ -7,6 +7,7 @@ class Public::SearchesController < ApplicationController
       @users = User.looks(params[:word])
     else
       @cosmeitems = CosmeItem.looks(params[:word])
+      @cosmeitems = @cosmeitems.page(params[:page]).per(6)
     end
   end  
 end

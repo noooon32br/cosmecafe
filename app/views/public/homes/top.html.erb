@@ -1,13 +1,19 @@
-<h1>Topページ</h1>
+<h2>ようこそ！<span>cosmecafe</span>へ</h2>
 
 <div class="btn-wrapper col-10 mx-auto">
   <div class="row">
-    <%= link_to 'ログイン', new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
+    <div class="col-md-5">
+      <%= link_to 'ログイン', new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
+    </div>
   </div>
   <div class="row">
-    <%= link_to '新規登録', new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
+    <div class="col-md-5">
+      <%= link_to '新規登録', new_user_registration_path, class: "btn btn-success btn-sm mb-3 btn-block sign_up" %>
+    </div>
   </div>
   <div class="row">
-    <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+    <div class="col-md-5">
+      <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+    </div>
   </div>
 </div>
