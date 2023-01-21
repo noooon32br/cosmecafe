@@ -2,7 +2,7 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 body {
-  background-image: url(/assets/cosme_back.jpeg);
+  background-image: url("/images/cosme_back.jpg");
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -10,8 +10,3 @@ body {
   width:100%;
 }
 
-.BackGroundColor {
-  background: rgba(255,255,255,0.6);
-  padding:30px 0px;
-  height:100%;
-}
