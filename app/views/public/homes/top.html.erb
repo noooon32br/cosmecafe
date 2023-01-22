@@ -1,32 +1,29 @@
 <div class="container">
   <div class="row">
-    <div class="col">
-      <div class="cover-text text-center">
-        <div class=" text-white pt-4 pr-4">
-          <h2>ようこそ<span class="title">cosmecafe</span>へ</h2>
+    <div class="col-lg-12">
+      <div class="card text-center mx-auto" style="max-width: 400px;">
+        <%= image_tag 'cosmetop.jpg', size: '500x300', class:"card-img" %>
+        <div class="card-img-overlay">
+          <p class=" text-white pt-4 pr-4 h2">ようこそ<span class="title">cosmecafe</span>へ</p>
         </div>
       </div>
     </div>
   </div>
-  <div class="text-center mt-4">
-    <%= image_tag 'cosmetop.jpg', size: '500x300' %>
-  </div>
-  </div>
-    <div class="btn-wrapper col-lg-8 mx-auto text-center">
-      <div class="row">
-        <div class="col-md-5">
+    <br/>
+    <div class="btn-wrapper col-lg-3 col-md-6 mx-auto text-center">
+     
+        <div class="col-md-3">
           <%= link_to 'ログイン', new_user_session_path, class: "btn button-003 btn-sm btn-block mb-3 sign_in" %>
         </div>
-      </div>
-      <div class="row">
+     
         <div class="col-md-5">
           <%= link_to '新規登録', new_user_registration_path, class: "btn button-004 btn-sm mb-3 btn-block sign_up" %>
         </div>
-      </div>
-      <div class="row">
+     
+    
         <div class="col-md-5">
           <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn button-029 btn-sm btn-block mb-3 sign_in", method: :post %>
         </div>
-      </div>
+     
     </div>
 </div>

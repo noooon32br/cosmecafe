@@ -2,6 +2,16 @@
   font-family: 'Dancing Script', cursive !important;
 }
 
+.card-img-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1.25rem;
+}
+
+
 .button-003 {
     display: flex !important;
     justify-content: center !important;
