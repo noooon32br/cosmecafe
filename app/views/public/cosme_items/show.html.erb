@@ -11,12 +11,15 @@
           <% end %>
         </div>
         <div class="col-4">
+          <span class="pb-lg-3"><%= @cosmeitem.user.nickname %></span>
           <div id="bookmark_button">
             <%= render 'public/bookmarks/bookmark', cosme_item: @cosmeitem %>
           </div>
           <br/>
           <i class="far fa-comment"></i>
           <span><%= @cosmeitem.cosme_comments.count %></span>
+          <br/>
+          
         </div>
       </div>
         <div class="form-group">
@@ -24,27 +27,28 @@
           <%= @cosmeitem.description %>
         </div>
         <%= render_with_hashtags(@cosmeitem.hashbody) %><br/>
-        <%= @cosmeitem.cosme_category.name %>
+        <div class="badge badge-pill badge-danger h5"><%= @cosmeitem.cosme_category.name %></div>
+        
         <br/>
         <% if @cosmeitem.user_id == current_user.id %>
           <%= link_to '編集', edit_cosme_item_path(@cosmeitem.id), class: 'btn btn-secondary' %>
           <%= link_to '削除', cosme_item_path(@cosmeitem.id), method: :delete, class: 'btn btn-secondary', "data-confirm" => "本当に削除しますか？" %>
         <% end %>
 
-        <div class="form-group">
-        <% @cosmeitem.cosme_comments.each do |cosme_comment| %>
-          <%= image_tag cosme_comment.user.get_profile_image(50,50) %>
-          <%= cosme_comment.user.nickname %>
-          <%= cosme_comment.created_at.strftime('%Y/%m/%d') %><br/>
-          <%= cosme_comment.comment %>
-          <% if cosme_comment.user == current_user %>
-          <%= link_to "削除", cosme_item_cosme_comment_path(cosme_comment.cosme_item, cosme_comment), method: :delete %>
+        <div class="form-group col-lg-9 col-md-8">
+          <% @cosmeitem.cosme_comments.each do |cosme_comment| %>
+            <%= image_tag cosme_comment.user.get_profile_image(50,50) %>
+            <%= cosme_comment.user.nickname %>
+            <%= cosme_comment.created_at.strftime('%Y/%m/%d') %><br/>
+            <%= cosme_comment.comment %>
+            <% if cosme_comment.user == current_user %>
+            <%= link_to "削除", cosme_item_cosme_comment_path(cosme_comment.cosme_item, cosme_comment), method: :delete %>
+            <% end %>
           <% end %>
-        <% end %>
         </div>
         <div class="form-group">
         <%= form_with model: [@cosmeitem, @cosme_comment] do |f| %>
-          <%= f.text_area :comment, size: '50x5' %>
+          <%= f.text_area :comment, size: '45x5' %><br/>
           <%= f.submit "送信する", class: 'btn btn-secondary' %>
         <% end %>
       </div>
