@@ -20,12 +20,10 @@
           </div>
         <%= f.password_field :password, autocomplete: "current-password", class:"form-control", id:"inputPassword", placeholder:"パスワード" %>
         </div>
-
-        
-          <%= f.submit "ログイン", class:"btn btn-lg btn-block btn-info mt-5" %>
-        
-      <% end %>
+          <%= f.submit "ログイン", class:"btn btn-lg btn-block btn-secondary mt-5" %>
+        <% end %>
       </div>
     </div>
   </div>
+  <%= link_to 'トップへ戻る', root_path, class:"btn btn-secondary" %>
 </div>

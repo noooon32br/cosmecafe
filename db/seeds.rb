@@ -5,13 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# admin = Admin.new(
-#   email: 'admin@web.jp',
-#   password: 'admin0123'
-#  )
-# admin.save!
-Admin.find_or_create_by!(email: 'admin@web.jp') do |admin|
-  admin.password = 'admin0101'
+
+Admin.find_or_create_by!(email: ENV['ADMIN_EMAIL']) do |admin|
+  admin.password = ENV['ADMIN_PASSWORD']
 end
 
 makeup = CosmeCategory.find_or_create_by!(name: "メイクアップ")

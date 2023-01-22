@@ -4,21 +4,22 @@
       <h5 class="text-dark bg-light py-4 mb-0">ログイン</h5>
       <div class="form-body p-4">
       <%= form_with model: @admin, url: admin_session_path do |f| %>
-        <div class="field">
-         <%= f.label 'メールアドレス' %><br />
+        <div class="form-group">
+         <label>メールアドレス</label>
          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label 'パスワード' %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-
-  <div class="actions">
-    <%= f.submit "ログイン" %>
-  </div>
+        </div>
+      
+        <div class="form-group">
+          <label>パスワード</label>
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+      
+      
+        <div class="form-group">
+          <%= f.submit "ログイン", class:"btn btn-lg btn-block btn-secondary mt-5" %>
+        </div>
       <% end %>
+      </div>
     </div>
   </div>
 </div>

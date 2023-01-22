@@ -1,0 +1,157 @@
+.title {
+  font-family: 'Dancing Script', cursive !important;
+}
+
+.button-003 {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center;
+    position: relative !important;
+    width: 250px !important;
+    margin:0 auto;
+    padding: .8em 2em;
+    overflow: hidden !important;
+    border: 1px solid #ec5f8a !important;
+    border-radius: 25px !important;
+    background-color: #fff !important;
+    color: #ec5f8a !important;
+    font-size: 1em !important;
+}
+
+.button-003:hover {
+    background-color: transparent !important;
+    color: #fff !important;
+}
+
+.button-003::before {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: -1 !important;
+    width: 0 !important;
+    height: 100% !important;
+    background-color: #ec5f8a !important;
+    content: '';
+    transition: width .3s ease !important;
+}
+
+.button-003:hover::before {
+    width: 100% !important;
+}
+
+.button-003::after {
+    transform: rotate(45deg) !important;
+    width: 5px !important;
+    height: 5px !important;
+    margin-left: 10px !important;
+    border-top: 2px solid #ec5f8a !important;
+    border-right: 2px solid #ec5f8a !important;
+    content: '';
+}
+
+.button-003:hover::after {
+    border-color: #fff !important;
+}
+
+
+.button-004 {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center;
+    position: relative !important;
+    width: 250px !important;
+    margin:0 auto;
+    padding: .8em 2em;
+    overflow: hidden !important;
+    border: 1px solid #ea5fec !important;
+    border-radius: 25px !important;
+    background-color: #fff !important;
+    color: #ea5fec !important;
+    font-size: 1em !important;
+}
+
+.button-004:hover {
+    background-color: transparent !important;
+    color: #fff !important;
+}
+
+.button-004::before {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: -1 !important;
+    width: 0 !important;
+    height: 100% !important;
+    background-color: #ea5fec !important;
+    content: '';
+    transition: width .3s ease !important;
+}
+
+.button-004:hover::before {
+    width: 100% !important;
+}
+
+.button-004::after {
+    transform: rotate(45deg) !important;
+    width: 5px !important;
+    height: 5px !important;
+    margin-left: 10px !important;
+    border-top: 2px solid #ea5fec !important;
+    border-right: 2px solid #ea5fec !important;
+    content: '';
+}
+
+.button-004:hover::after {
+    border-color: #fff !important;
+}
+
+.button-029 {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center;
+    position: relative !important;
+    width: 250px !important;
+    margin:0 auto;
+    padding: .8em 2em;
+    overflow: hidden !important;
+    border: 1px solid #ad35ed !important;
+    border-radius: 25px !important;
+    background-color: #fff !important;
+    color: #ad35ed !important;
+    font-size: 1em !important;
+}
+
+.button-029:hover {
+    background-color: transparent !important;
+    color: #fff !important;
+}
+
+.button-029::before {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: -1 !important;
+    width: 0 !important;
+    height: 100% !important;
+    background-color: #ad35ed !important;
+    content: '';
+    transition: width .3s ease !important;
+}
+
+.button-029:hover::before {
+    width: 100% !important;
+}
+
+.button-029::after {
+    transform: rotate(45deg) !important;
+    width: 5px !important;
+    height: 5px !important;
+    margin-left: 10px !important;
+    border-top: 2px solid #ad35ed !important;
+    border-right: 2px solid #ad35ed !important;
+    content: '';
+}
+
+.button-029:hover::after {
+    border-color: #fff !important;
+}
