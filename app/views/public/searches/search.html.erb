@@ -7,7 +7,7 @@
           <% if @range == "会員" %>
             <% @users.each do |user| %>
               <span class="col-3">
-                
+                <%= image_tag user.get_profile_image(200,200), class: "rounded-circle", style: "border-radius: 50%" %><br/>
                 <%= link_to user.nickname, user_path(user) %>
               </span>
             <% end %>

@@ -1,31 +1,35 @@
  <% cosmeitems.each do |cosmeitem| %>
-  <%= link_to cosme_item_path(cosmeitem.id) do %> 
-    <% if cosmeitem.image.attached? %>
-      <%= image_tag cosmeitem.image, size: "200x200", class:"card-img-top" %>
-    <% else %>
-      <%= image_tag 'no_image', size: "200x200" %>
+<div class="card-list mb-3 col-lg-4 col-md-6 col-sm-7">
+  <div class="card-img-top mx-auto mt-4 shadow-lg">
+    <%= link_to cosme_item_path(cosmeitem.id) do %> 
+      <% if cosmeitem.image.attached? %>
+        <%= image_tag cosmeitem.image, size: "200x200", class:"card-img-top" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "200x200" %>
+      <% end %>
     <% end %>
-  <% end %>
-    <div class="card-body">
-      <p class="card-title">
-        <%= cosmeitem.cosme_name %>
-      </p>
-      <p class="card-text">
-       <%= cosmeitem.description.truncate(13) %>
-      </p>
-      <span>
-        <small class="text-muted">
-          <%= render_with_hashtags(cosmeitem.hashbody) %>
-        </small>
-      </span><br>
-      <p>
-        <small class="text-muted">
-        <%= link_to user_path(cosmeitem.user.id) do %>
-          <%= cosmeitem.user.nickname %> 
-        <% end %>
-        </small>
-      </p>
-    </div>
+      <div class="card-body">
+        <p class="card-title">
+          <%= cosmeitem.cosme_name %>
+        </p>
+        <p class="card-text">
+         <%= cosmeitem.description.truncate(13) %>
+        </p>
+        <span>
+          <small class="text-muted">
+            <%= render_with_hashtags(cosmeitem.hashbody) %>
+          </small>
+        </span><br>
+        <p>
+          <small class="text-muted">
+          <%= link_to user_path(cosmeitem.user.id) do %>
+            <%= cosmeitem.user.nickname %> 
+          <% end %>
+          </small>
+        </p>
+      </div>
+  </div>
+</div>
  <% end %>
  
  <%= paginate cosmeitems %>

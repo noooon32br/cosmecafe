@@ -12,7 +12,9 @@
           <% end %>
             <div class="card-body">
               <p class="card-title">
-                <%= bookmark.cosme_item.user.nickname %>
+                <%= link_to cosme_item_path(bookmark.cosme_item) do %>
+                  <%= bookmark.cosme_item.cosme_name %>
+                <% end %>
               </p>
               <p class="card-text">
                 <%= bookmark.cosme_item.description.truncate(13) %>
@@ -24,9 +26,7 @@
               </span><br>
               <p>
                 <small class="text-muted">
-                <%= link_to cosme_item_path(bookmark.cosme_item) do %>
-                  <%= bookmark.cosme_item.cosme_name %>
-                <% end %>
+                  <%= bookmark.cosme_item.user.nickname %>
                 </small>
               </p>
             </div>
