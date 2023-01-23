@@ -9,18 +9,18 @@ class Public::CosmeItemsController < ApplicationController
   
   def index
     @cosme_categories = CosmeCategory.where(ancestry: nil)
-    @cosmeitems = CosmeItem.all.order(created_at: 'desc')
+    @cosmeitems = CosmeItem.all
     if params[:category_id].present?
       category = CosmeCategory.find_by(id: params[:category_id])
       if category.present?
-        @cosmeitems = category.cosme_items.order(created_at: 'desc')
+        @cosmeitems = category.cosme_items
       end
     end
     
-    if params[:rank].present?
-      if params[:rank] == '閲覧数'
-        @cosmeitems = @cosmeitems.order(views: 'desc')
-      end
+    if params[:rank].present? && params[:rank] == '閲覧数'
+      @cosmeitems = @cosmeitems.order(views: 'desc')
+    else
+      @cosmeitems = @cosmeitems.order(created_at: 'desc')
     end
     @cosmeitems = @cosmeitems.page(params[:page]).per(6)
   end
@@ -34,12 +34,12 @@ class Public::CosmeItemsController < ApplicationController
   def create
     @cosmeitem = CosmeItem.new(cosmeitem_params)
     @cosmeitem.user_id = current_user.id
-    @cosmeitem.save!
-    redirect_to cosme_items_path(), notice: "投稿しました"
-    # else
-    #   @cosmeitem = CosmeItem.all
-    #   render 'index'
-    # end
+    if @cosmeitem.save
+      redirect_to cosme_items_path(), notice: "投稿しました"
+    else
+     @cosmecategorys = CosmeCategory.where(ancestry: nil)
+      render :new
+    end
   end
   
   def edit

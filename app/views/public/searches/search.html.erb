@@ -5,14 +5,24 @@
          <p>検索結果</p>
         <div class="row">
           <% if @range == "会員" %>
-            <% @users.each do |user| %>
-              <span class="col-3">
-                <%= image_tag user.get_profile_image(200,200), class: "rounded-circle", style: "border-radius: 50%" %><br/>
-                <%= link_to user.nickname, user_path(user) %>
-              </span>
+            <% if @users.exists? %>
+              <% @users.each do |user| %>
+                <span class="col-3">
+                  <%= image_tag user.get_profile_image(200,200), class: "rounded-circle", style: "border-radius: 50%" %><br/>
+                  <%= link_to user.nickname, user_path(user) %>
+                </span>
+              <% end %>
+            <% else %>
+              <p>該当するユーザーはいません</p>
             <% end %>
           <% else %>
-            <%= render 'public/cosme_items/index', cosmeitems: @cosmeitems %>
+            <% if @cosmeitems.exists? %>
+              <% @cosmeitems.each do |cosmeitem| %>
+                <%= render 'public/cosme_items/index', cosmeitems: @cosmeitems %>
+              <% end %>
+            <% else %>
+              <p>該当する投稿はありません</p>
+            <% end %>
           <% end %>
         </div>
       </div>

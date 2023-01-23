@@ -1,0 +1,20 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        cosme_item:
+          attributes:
+            cosme_name:
+              blank: 'を入力してください'
+            image:
+              blank: 'を選択してください'
+            description:
+              blank: 'を入力してください'
+            cosme_category_id:
+              blank: '選択してください'
+    attributes:
+      cosme_item:
+        cosme_name: 'コスメ名'
+        image: '画像'
+        description: '内容'
+        cosme_category_id: 'カテゴリー'

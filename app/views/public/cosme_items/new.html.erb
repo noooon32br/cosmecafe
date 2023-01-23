@@ -2,6 +2,14 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h4>新規投稿</h4>
+      <% if @cosmeitem.errors.any? %>
+        <%= @cosmeitem.errors.count %>件のエラーが発生しました
+        <ul>
+          <% @cosmeitem.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
       <%= form_with model: @cosmeitem, url: cosme_items_path, method: :post do |f| %>
         <div class="form-group">
           <label>コスメ名</label><br>
@@ -16,12 +24,12 @@
           <%= f.text_area :hashbody, size:"55x3" %>
         </div>
         <div class="form-group">
-          <label>カテゴリ選択</label><br>
+          <label>カテゴリー選択</label><br>
           <%= f.select :cosme_category_id, options_from_collection_for_select(@cosmecategorys, :id, :name), {include_blank: "選択してください"} %>
      
           <% @cosmecategorys.each do |cosmecategory| %>
           <div id="category_box_<%= cosmecategory.id %>" class="category_box" style="display:none;">
-            <%= f.select :cosme_category_id, options_from_collection_for_select(CosmeCategory.where(ancestry: cosmecategory.id), :id, :name) %>
+            <%= f.select :cosme_category_id, options_from_collection_for_select(CosmeCategory.where(ancestry: cosmecategory.id), :id, :name)  %>
           </div>
           <% end %>
       
@@ -40,6 +48,7 @@
 
 <script>
 $(function() {
+  $('.category_box').find('input,select,button').prop('disabled', true);
    $('#cosme_item_cosme_category_id').change(function(){
        //category_boxを探して、selectタグを探し無効化する
          $('.category_box').find('input,select,button').prop('disabled', true);

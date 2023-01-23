@@ -5,7 +5,7 @@ class Public::CosmeCommentsController < ApplicationController
     comment = current_user.cosme_comments.new(cosme_comment_params)
     comment.cosme_item_id = cosme_item.id
     comment.save
-    redirect_to cosme_items_path()
+    redirect_to cosme_item_path(cosme_item.id)
   end
   
   def destroy

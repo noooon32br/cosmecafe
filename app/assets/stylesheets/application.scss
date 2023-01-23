@@ -33,3 +33,18 @@ h4 {
   font-family: 'Yusei Magic', sans-serif;
   color: #808080;
 }
+
+.page-link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #808080 !important;
+    background-color: #fff;
+    border: 1px solid #ffb6c1 !important;
+}
+
+.page-item.active .page-link {
+  background-color: #ffb6c1 !important;
+}

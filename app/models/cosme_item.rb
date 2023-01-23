@@ -10,6 +10,12 @@ class CosmeItem < ApplicationRecord
    has_many :hashtags, through: :hashtag_cosme_items
    belongs_to :cosme_category, optional: true
    
+  validates :cosme_name, presence: true
+  validates :cosme_category_id, presence: true
+  validates :image, presence: true
+  validates :description, presence: true
+
+   
    def bookmarked_by?(user)
     bookmarks.exists?(user_id: user.id)
    end
