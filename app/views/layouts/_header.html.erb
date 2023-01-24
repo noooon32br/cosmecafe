@@ -9,8 +9,18 @@
           <ul class="navbar-nav ml-auto">
           <% if user_signed_in? && current_user.login_id == 'guestuser' %>
             <li class="navbar-item">
+              <%= link_to '投稿一覧', cosme_items_path(), class: 'nav-link text-secondary' %>
+            </li>
+            <li class="navbar-item">
               <%= link_to 'ログアウト', destroy_user_session_path(), method: :delete, class: 'nav-link text-secondary' %>
             </li>
+            <li class="navbar-item">
+            <%= form_with url: search_path, local: true, method: :get do |f| %>
+              <%= f.select :range, options_for_select([['会員'], ['キーワード']]) %>
+              <%= f.text_field :word, type: "text", placeholder: "Search", class: "" %>
+              <button class="btn btn-secondary btn-sm" type="submit"><i class="fas fa-search"></i></button>
+            <% end %>
+             </li>
           <% elsif admin_signed_in? %>
             <li class="navbar-item">
               <%= link_to 'ログアウト', destroy_admin_session_path(), method: :delete, class: 'nav-link text-secondary' %>

@@ -16,10 +16,10 @@
           </div>
         </div>
       <% if user == current_user %>
-        <%= link_to edit_user_path(user.id), class: "btn btn-secondary w-2 btn-sm mb-2" do %>
+        <%= link_to edit_user_path(user.id), class: "btn btn-secondary w-2 btn-sm mb-2 px-4" do %>
           <i class="far fa-user-circle"></i>profile
         <% end %><br/>
-        <%= link_to user_bookmarks_path(user), class: "btn btn-secondary btn-sm" do %>
+        <%= link_to user_bookmarks_path(user), class: "btn btn-secondary btn-sm px-4" do %>
           <i class="fas fa-bookmark"></i>bookmark
         <% end %>
       <% else %>

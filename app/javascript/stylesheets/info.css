@@ -1,6 +1,6 @@
 .rounded-circle {
   border-radius: 50%;
-  background-position: center center;
-  width:  100px;
-  height: 100px;
+  background-position: center center !important;
+  width:  100px !important;
+  height: 100px !important;
 }

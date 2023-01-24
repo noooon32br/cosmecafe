@@ -29,7 +29,7 @@
      
           <% @cosmecategorys.each do |cosmecategory| %>
           <div id="category_box_<%= cosmecategory.id %>" class="category_box" style="display:none;">
-            <%= f.select :cosme_category_id, options_from_collection_for_select(CosmeCategory.where(ancestry: cosmecategory.id), :id, :name)  %>
+            <%= f.select :cosme_category_id, options_from_collection_for_select(CosmeCategory.where(ancestry: cosmecategory.id), :id, :name) %>
           </div>
           <% end %>
       

@@ -15,7 +15,7 @@ import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
 import "../stylesheets/index"
 import "../stylesheets/admin_new"
-import "../stylesheets/cosmeitem_show"
+// import "../stylesheets/cosmeitem_show"
 import "../stylesheets/info"
 Rails.start()
 Turbolinks.start()
