@@ -2,37 +2,37 @@
   <div class="row">
     <div class="col-lg-9 col-md-10">
       <h4>お気に入り一覧</h4>
-        <% @bookmarks.each do |bookmark| %>
-        <div class="card-list mb-3 col-lg-4 col-md-6 col-sm-9">
-          <div class="card-img-top mx-auto mt-4 shadow-lg">
-          <% if bookmark.cosme_item.image.attached? %>
-            <%= image_tag bookmark.cosme_item.image, size: "200x200", class:"card-img-top" %>
-          <% else %>
-            <%= image_tag 'no_image', size: "200x200" %>
-          <% end %>
-            <div class="card-body">
-              <p class="card-title">
-                <%= link_to cosme_item_path(bookmark.cosme_item) do %>
-                  <%= bookmark.cosme_item.cosme_name %>
-                <% end %>
-              </p>
-              <p class="card-text">
-                <%= bookmark.cosme_item.description.truncate(13) %>
-              </p>
-              <span>
-                <small class="text-muted">
-                 <%= render_with_hashtags(bookmark.cosme_item.hashbody) %>
-                </small>
-              </span><br>
-              <p>
-                <small class="text-muted">
-                  <%= bookmark.cosme_item.user.nickname %>
-                </small>
-              </p>
-            </div>
+      <% @bookmarks.each do |bookmark| %>
+      <div class="card-list mb-3 col-lg-4 col-md-6 col-sm-9">
+        <div class="card-img-top mx-auto mt-4 shadow-lg">
+        <% if bookmark.cosme_item.image.attached? %>
+          <%= image_tag bookmark.cosme_item.image, size: "200x200", class:"card-img-top" %>
+        <% else %>
+          <%= image_tag 'no_image', size: "200x200" %>
+        <% end %>
+          <div class="card-body">
+            <p class="card-title">
+              <%= link_to cosme_item_path(bookmark.cosme_item) do %>
+                <%= bookmark.cosme_item.cosme_name %>
+              <% end %>
+            </p>
+            <p class="card-text">
+              <%= bookmark.cosme_item.description.truncate(13) %>
+            </p>
+            <span>
+              <small class="text-muted">
+               <%= render_with_hashtags(bookmark.cosme_item.hashbody) %>
+              </small>
+            </span><br>
+            <p>
+              <small class="text-muted">
+                <%= bookmark.cosme_item.user.nickname %>
+              </small>
+            </p>
           </div>
         </div>
-        <% end %>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>

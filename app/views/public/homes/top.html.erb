@@ -9,21 +9,16 @@
       </div>
     </div>
   </div>
-    <br/>
-    <div class="btn-wrapper col-lg-3 col-md-6 mx-auto text-center">
-     
-        <div class="col-md-3">
-          <%= link_to 'ログイン', new_user_session_path, class: "btn button-003 btn-sm btn-block mb-3 sign_in" %>
-        </div>
-     
-        <div class="col-md-5">
-          <%= link_to '新規登録', new_user_registration_path, class: "btn button-004 btn-sm mb-3 btn-block sign_up" %>
-        </div>
-     
-    
-        <div class="col-md-5">
-          <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn button-029 btn-sm btn-block mb-3 sign_in", method: :post %>
-        </div>
-     
+  <br/>
+  <div class="btn-wrapper col-lg-3 col-md-6 mx-auto text-center">
+    <div class="col-md-3">
+      <%= link_to 'ログイン', new_user_session_path, class: "btn button-003 btn-sm btn-block mb-3 sign_in" %>
     </div>
+    <div class="col-md-5">
+      <%= link_to '新規登録', new_user_registration_path, class: "btn button-004 btn-sm mb-3 btn-block sign_up" %>
+    </div>
+    <div class="col-md-5">
+      <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn button-029 btn-sm btn-block mb-3 sign_in", method: :post %>
+    </div>
+  </div>
 </div>

@@ -2,9 +2,7 @@
   <h4>投稿一覧</h4>
   <div class="row">
     <div class="col-4">
-      <% if current_user.login_id != "guestuser" %>
-        <div><%= link_to '新規投稿', new_cosme_item_path, class: 'btn btn-secondary' %></div>
-      <% end %>
+      <div><%= link_to '新規投稿', new_cosme_item_path, class: 'btn btn-secondary' %></div>
     </div>
     <div class="col-8">
       <%= form_with url: cosme_items_path, local: true, method: :get do |f| %>
@@ -21,7 +19,6 @@
           <a class="dropdown-toggle text-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= category.name %>
           </a>
-        
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <% category.children.each do |child_category| %>
               <%= link_to child_category.name, cosme_items_path({category_id: child_category.id}), class: "dropdown-item" %>
@@ -32,9 +29,7 @@
     </div>
     <div class="col-9">
       <div class="row">
-      
-          <%= render 'public/cosme_items/index', cosmeitems: @cosmeitems %>
-        
+        <%= render 'public/cosme_items/index', cosmeitems: @cosmeitems %>
       </div>
     </div>
   </div>

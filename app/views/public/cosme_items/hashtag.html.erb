@@ -1,10 +1,8 @@
 <div class="container">
   <div class="row">
     <h4 class="col-3">タグ一覧</h4>
-
     <div>#<%= @hashtag.hashname %></div>
      <%= @hashtag.cosme_items.count %>件
-
     <div class="col-md-9">
       <div class="row">
         <%= render 'public/cosme_items/index', cosmeitems: @cosmeitems %>
