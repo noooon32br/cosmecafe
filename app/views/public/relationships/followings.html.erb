@@ -12,7 +12,8 @@
     <% else %>
       <p>ユーザーはいません</p>
     <% end %>
-    <%= link_to '戻る', user_path(current_user), class:"btn btn-secondary mt-5" %>
+    <br/>
+    <%= link_to '戻る', user_path(@user), class:"btn btn-secondary mt-5" %>
     </div>
   </div>
 </div>
