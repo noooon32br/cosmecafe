@@ -20,7 +20,7 @@ class User < ApplicationRecord
   validates :login_id, presence: true
          
   def self.guest
-    find_or_create_by!(login_id: 'guestuser' ,email: 'guest@example.com') do |user|
+    find_or_create_by!(login_id: 'guestuser' ,email: 'guest@example.com', last_name: 'guest', first_name: 'user', nickname: 'guest') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.login_id = "guestuser"
     end
