@@ -3,7 +3,7 @@ class Public::BookmarksController < ApplicationController
   
   def index
     @bookmarks = Bookmark.where(user_id: current_user.id)
-   
+    @bookmarks = @bookmarks.page(params[:page]).per(6)
   end
   
   def create
