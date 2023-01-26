@@ -12,9 +12,24 @@ ja:
               blank: 'を入力してください'
             cosme_category_id:
               blank: '選択してください'
+        user:
+          attributes:
+            nickname:
+              blank: 'を入力してください'
+            last_name:
+              blank: 'を入力してください'
+            first_name:
+              blank: 'を入力してください'
+            login_id:
+              blank: 'を入力してください'
     attributes:
       cosme_item:
         cosme_name: 'コスメ名'
         image: '画像'
         description: '内容'
         cosme_category_id: 'カテゴリー'
+      user:
+        nickname: 'ニックネーム'
+        last_name: '姓'
+        first_name: '名'
+        login_id: 'ログインID'

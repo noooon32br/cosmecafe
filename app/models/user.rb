@@ -13,6 +13,11 @@ class User < ApplicationRecord
   
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
+  
+  validates :last_name, presence: true
+  validates :first_name, presence: true
+  validates :nickname, presence: true
+  validates :login_id, presence: true
          
   def self.guest
     find_or_create_by!(login_id: 'guestuser' ,email: 'guest@example.com') do |user|
