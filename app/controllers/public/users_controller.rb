@@ -38,7 +38,7 @@ class Public::UsersController < ApplicationController
   def ensure_guest_user
     @user = User.find(params[:id])
     if @user.login_id == "guestuser"
-      redirect_to root_path() , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+      redirect_to user_path(@user.id) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
   end  
 end

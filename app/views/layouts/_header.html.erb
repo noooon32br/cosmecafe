@@ -9,6 +9,9 @@
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? && current_user.login_id == 'guestuser' %>
           <li class="navbar-item">
+            <%= link_to 'ABOUT', about_path(), class: 'nav-link text-secondary' %>
+          </li>
+          <li class="navbar-item">
             <%= link_to '投稿一覧', cosme_items_path(), class: 'nav-link text-secondary' %>
           </li>
           <li class="navbar-item">
@@ -43,6 +46,9 @@
           <% end %>
            </li>
         <% else %>
+          <li class="navbar-item">
+            <%= link_to 'ABOUT', about_path(), class: 'nav-link text-secondary' %>
+          </li>
           <li class="navbar-item">
             <%= link_to 'ログイン', new_user_session_path(), class: 'nav-link text-secondary' %>
           </li>
