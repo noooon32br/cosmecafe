@@ -5,10 +5,10 @@
     <div class="col-4">
       <div><%= link_to '新規投稿', new_cosme_item_path, class: 'btn btn-secondary' %></div>
     </div>
-    <div class="col-8">
+    <div class="form-inline my-2 my-lg-0 col-8">
       <%= form_with url: cosme_items_path, local: true, method: :get do |f| %>
-        <%= f.select :rank, options_for_select([['新着順'], ['閲覧数']]) %>
-        <%= f.submit "並び替え", class: "btn btn-outline-secondary my-2 my-sm-0 btn-sm" %>
+        <%= f.select :rank, options_for_select([['新着順'], ['閲覧数']]), {}, class: "form-control mr-sm-2" %>
+        <%= f.submit "並び替え", class: "btn btn-outline-secondary my-2 my-sm-0" %>
       <% end %>
     </div>
   </div>

@@ -17,13 +17,13 @@
           <li class="navbar-item">
             <%= link_to 'ログアウト', destroy_user_session_path(), method: :delete, class: 'nav-link text-secondary' %>
           </li>
-          <li class="navbar-item">
+          <li class="form-inline my-2 my-lg-0">
           <%= form_with url: search_path, local: true, method: :get do |f| %>
-            <%= f.select :range, options_for_select([['会員'], ['キーワード']]) %>
-            <%= f.text_field :word, type: "text", placeholder: "Search", class: "" %>
-            <button class="btn btn-secondary btn-sm" type="submit"><i class="fas fa-search"></i></button>
+            <%= f.select :range, options_for_select([['会員'], ['キーワード']]), {}, class: "form-control" %>
+            <%= f.text_field :word, type: "text", placeholder: "Search", class: "form-control mr-sm-2" %>
+            <button class="btn btn-secondary" type="submit"><i class="fas fa-search"></i></button>
           <% end %>
-           </li>
+          </li>
         <% elsif admin_signed_in? %>
           <li class="navbar-item">
             <%= link_to 'ログアウト', destroy_admin_session_path(), method: :delete, class: 'nav-link text-secondary' %>
@@ -38,10 +38,10 @@
           <li class="navbar-item">
             <%= link_to 'ログアウト', destroy_user_session_path(), method: :delete, class: 'nav-link text-secondary' %>
           </li>
-          <li class="navbar-item">
+          <li class="form-inline my-2 my-lg-0">
           <%= form_with url: search_path, local: true, method: :get do |f| %>
-            <%= f.select :range, options_for_select([['会員'], ['キーワード']]) %>
-            <%= f.text_field :word, type: "text", placeholder: "Search", class: "" %>
+            <%= f.select :range, options_for_select([['会員'], ['キーワード']]), {}, class: "form-control" %>
+            <%= f.text_field :word, type: "text", placeholder: "Search", class: "form-control mr-sm-2" %>
             <button class="btn btn-secondary btn-sm" type="submit"><i class="fas fa-search"></i></button>
           <% end %>
            </li>
