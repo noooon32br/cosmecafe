@@ -22,6 +22,10 @@ ja:
               blank: 'を入力してください'
             login_id:
               blank: 'を入力してください'
+            email:
+              blank: 'を入力してください'
+            password:
+              blank: 'を入力してください'
     attributes:
       cosme_item:
         cosme_name: 'コスメ名'
