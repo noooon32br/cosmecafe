@@ -17,9 +17,7 @@
             <% end %>
           <% else %>
             <% if @cosmeitems.exists? %>
-              <% @cosmeitems.each do |cosmeitem| %>
-                <%= render 'public/cosme_items/index', cosmeitems: @cosmeitems %>
-              <% end %>
+              <%= render 'public/cosme_items/index', cosmeitems: @cosmeitems %>
             <% else %>
               <p>該当する投稿はありません</p>
             <% end %>
