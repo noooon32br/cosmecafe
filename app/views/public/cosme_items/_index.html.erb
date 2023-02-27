@@ -1,9 +1,9 @@
 <% cosmeitems.each do |cosmeitem| %>
 <div class="card-list mb-3 col-lg-4 col-md-6 col-sm-7">
   <div class="card-img-top mx-auto mt-4 shadow-lg">
-    <%= link_to cosme_item_path(cosmeitem.id) do %> 
+    <%= link_to cosme_item_path(cosmeitem.id) do %>
       <% if cosmeitem.image.attached? %>
-        <%= image_tag cosmeitem.image, size: "200x200", class:"card-img-top" %>
+        <%= image_tag cosmeitem.image, class:"index-img card-img-top" %>
       <% else %>
         <%= image_tag 'no_image.png', size: "200x200" %>
       <% end %>
@@ -23,7 +23,7 @@
       <p>
         <small class="text-muted">
         <%= link_to user_path(cosmeitem.user.id) do %>
-          <%= cosmeitem.user.nickname %> 
+          <%= cosmeitem.user.nickname %>
         <% end %>
         </small>
       </p>

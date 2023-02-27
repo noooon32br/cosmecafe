@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-md-7 col-sm-8">
           <% if @cosmeitem.image.attached? %>
-            <%= image_tag @cosmeitem.image, size: "200x200" %>
+            <%= image_tag @cosmeitem.image, class: "show-img" %>
           <% else %>
             <%= image_tag 'no_image.png', size: "200x200" %>
           <% end %>
